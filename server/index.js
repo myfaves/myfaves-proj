@@ -5,7 +5,7 @@ const app = express()
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
 //CONTROLLERS
-// const authMid = require("./middleware/authMiddleware")
+// const authCtrl = require("./controllers/authController")
 
 //MIDDLEWARE
 app.use(express.json())
