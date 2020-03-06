@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+
 const data = [{title: 'Thing', genre: 'Thing 2'}, {title: 'Thing 3', genre: 'Thing 4'}, {title: 'Thing 5', genre: 'Thing 6'}]
 
 function Dashboard (props) {
