@@ -36,3 +36,5 @@ massive(CONNECTION_STRING).then(db => {
 // app.get("/auth/user", authCtrl.getUser)
 
 //FAVS ENDPOINTS
+
+//MOVIES ENDPOINTS
