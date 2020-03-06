@@ -1,11 +1,12 @@
 require("dotenv").config({ path: `${__dirname}/../.env` })
 const express = require("express")
+const session = require('express-session')
 const massive = require("massive")
 const app = express()
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
 //CONTROLLERS
-// const authCtrl = require("./controllers/authController")
+const authCtrl = require("./controllers/authController")
 
 //MIDDLEWARE
 app.use(express.json())
@@ -30,10 +31,10 @@ massive(CONNECTION_STRING).then(db => {
 
 //ENDPOINTS
 //AUTH ENDPOINTS
-// app.post("/auth/register", authCtrl.register)
-// app.post("/auth/login", authCtrl.login)
-// app.post("/auth/logout", authCtrl.logout)
-// app.get("/auth/user", authCtrl.getUser)
+app.post("/auth/register", authCtrl.register)
+app.post("/auth/login", authCtrl.login)
+app.post("/auth/logout", authCtrl.logout)
+app.get("/auth/user", authCtrl.getUser)
 
 //FAVS ENDPOINTS
 
