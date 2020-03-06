@@ -14,7 +14,7 @@ const useAxios = (url, initialData = [], callback = () => {}) => {
   }, [url, callback])
   return [
     axiosData,
-    (url, method = "get", body = "null", callback = () => {}) => {
+    (url, method = "get", body = null, callback = () => {}) => {
       axios(url, { method, body }).then(({ data }) => {
         setAxiosData(data)
         callback(data)
