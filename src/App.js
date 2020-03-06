@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './Components/NavBar'
 
-function App() {
+const App = (props) => {
   return (
     <div className="App">
-     <p>What Up Bois</p>
+      <NavBar />
+     {routes}
     </div>
   );
 }
