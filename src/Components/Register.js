@@ -41,7 +41,7 @@ const Register = props => {
       />
       <Input
         name="password"
-        // value={password}
+        value={password}
         placeHolder="Password"
         onChange={setValues}
       />
