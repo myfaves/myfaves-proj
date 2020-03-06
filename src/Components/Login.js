@@ -2,8 +2,8 @@ import React from 'react'
 import useInput from "../hooks/useInput"
 
 const Login = (props) => {
-  const [{ username, password }, setValues] = useInput({
-    username: "",
+  const [{ email, password }, setValues] = useInput({
+    email: "",
     password: ""
   })
   // const login = () => {}
@@ -12,14 +12,14 @@ const Login = (props) => {
        <form
         onSubmit={e => {
           e.preventDefault()
-          console.log(`Username: ${username} Password: ${password}`)
+          console.log(`Email: ${email} Password: ${password}`)
           // login()
         }}
       >
         <input
-          name="username"
-          value={username}
-          placeholder="Username"
+          name="email"
+          value={email}
+          placeholder="Email"
           onChange={setValues}
         />
         <input
