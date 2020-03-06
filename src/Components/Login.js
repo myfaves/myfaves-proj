@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom'
 import '../Style/login.css'
 
 const Login = (props) => {
-  const [{ username, password }, setValues] = useInput({
-    username: "",
+  const [{ email, password }, setValues] = useInput({
+    email: "",
     password: ""
   })
   // const login = () => {}
@@ -17,15 +17,15 @@ const Login = (props) => {
         <form
           onSubmit={e => {
             e.preventDefault()
-            console.log(`Username: ${username} Password: ${password}`)
+            console.log(`Username: ${email} Password: ${password}`)
             // login()
           }}
         >
           <h1>Sign In</h1>
           <Input
-            name="username"
-            value={username}
-            placeHolder="Username"
+            name="email"
+            value={email}
+            placeHolder="Email"
             onChange={setValues}
           />
           <Input
