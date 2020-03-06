@@ -1,6 +1,5 @@
 import React from "react"
 import useInput from "../hooks/useInput"
-import React from 'react'
 import Input from './Reusable/Input'
 import '../Style/register.css'
 
