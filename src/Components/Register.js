@@ -1,6 +1,5 @@
 import React from "react"
 import useInput from "../hooks/useInput"
-import React from 'react'
 import Input from './Reusable/Input'
 import '../Style/register.css'
 
@@ -42,7 +41,7 @@ const Register = props => {
       />
       <Input
         name="password"
-        // value={password}
+        value={password}
         placeHolder="Password"
         onChange={setValues}
       />
