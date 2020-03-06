@@ -1,10 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {useCheckUser} from '../hooks/useCheckUser'
+import useCheckUser from '../hooks/useCheckUser'
 
 const UserProfile = ({user, history}) => {
   useCheckUser(user, history.push)
-  const {first_name, last_name, age, email}
+  const {first_name, last_name, age, email} = user
   return (
     <div>
       <h1>Name: {first_name} {last_name}</h1>
@@ -14,7 +14,7 @@ const UserProfile = ({user, history}) => {
   )
 }
 
-mapStateToProps = (store) => {
+const mapStateToProps = (store) => {
   const {user} = store.reducer
   return {user}
 }
