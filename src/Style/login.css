@@ -1,0 +1,69 @@
+.login-page{
+    height: 100vh;
+    width: 100%;
+    background-color: #171717;
+    display: flex;
+    flex-direction: column;
+}
+
+#login-logo {
+    height: 45px;
+    padding-top: 5px;
+    padding-left: 15px;
+    font-size: 25px;
+    color: #FFF;
+    font-weight: 300;
+}
+
+.auth-body {
+    height: 550px;
+    padding-top: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  form {
+      height: 315px;
+      width: 335px;
+  }
+  
+  .auth-body h1 {
+    font-size: 2em;
+    color: #FFF;
+  }
+
+  .login-button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  button {
+    box-sizing: border-box;
+    margin: 10px;
+    width: 300px;
+    font-weight: 700;
+    font-size: 14px;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    padding: 12px 21px;
+    background-color: #ff6060;
+    color: #FFF;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+  }
+  
+  button:hover {
+    color: #fff;
+    background-color: #f79898;
+    transition: 0.1s ease-in-out;
+  }
