@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import SearchBar from '../Components/SearchBar'
-import axios from 'axios'
+import SearchBar from './SearchBar'
+import MovieList from './MovieList'
 
 class Dashboard extends Component {
   constructor() {
@@ -15,8 +15,10 @@ class Dashboard extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.movieKey}&query=${this.searchMovies}`)
+    fetch(`https://api.themoviedb.org/3/search/movie/?api_key=${this.movieKey}&query=${this.state.searchMovies}`)
+    .then(data => data.json())
     .then(data => {
+      console.log(data)
       this.setState({movies: [...data.results]})
     })
   }
@@ -29,8 +31,9 @@ class Dashboard extends Component {
     return(
       <div>
         <SearchBar handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+        <MovieList movies={this.state.movies}/>
       </div>
-    )
+    );
   }
 }
 
