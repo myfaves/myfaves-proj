@@ -1,10 +1,29 @@
-import React from 'react'
-const data = [{title: 'Thing', genre: 'Thing 2'}, {title: 'Thing 3', genre: 'Thing 4'}]
+import React, { useState, useEffect } from 'react'
+const data = [{title: 'Thing', genre: 'Thing 2'}, {title: 'Thing 3', genre: 'Thing 4'}, {title: 'Thing 5', genre: 'Thing 6'}]
 
-const Dashboard = (props) => {
+function Dashboard (props) {
+
+    const [movies, setMovies] = useState([])
+
+    useEffect(() => {
+        getMovies()
+     }, [])
+
+    const getMovies = () => {
+        axios.get(data)
+        .then(res => setMovies(res.data))
+    }
+
   return (
-    <div>Dashboard</div>
+    <div>
+        {movies.map(movie => (
+        <div>
+          <p>{movie.title}</p>  
+          <p>{movie.genre}</p>
+        </div>  
+        ))}
+    </div>
   )
 }
 
-export default Dashboard
+export default Dashboard;
