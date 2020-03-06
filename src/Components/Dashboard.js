@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react'
 const data = [{title: 'Thing', genre: 'Thing 2'}, {title: 'Thing 3', genre: 'Thing 4'}, {title: 'Thing 5', genre: 'Thing 6'}]
 
