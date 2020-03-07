@@ -42,7 +42,7 @@ app.get("/auth/user", authCtrl.getUser)
 
 //USER CATEGORY ENDPOINTS
 app.get('/api/categories', categoryCtrl.getCategories)
-app.post('/api/categories', categoryCtrl.addCategory)
+app.post('/api/categories/:category_id', categoryCtrl.addCategory)
 
 //MOVIE FAVES ENDPOINTS
 app.get('/api/movies', movieCtrl.getFavorites)
