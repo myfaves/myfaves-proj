@@ -1,3 +1,8 @@
+DROP TABLE IF EXISTS favorites;
+DROP TABLE IF EXISTS user_categories;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS genre;
+
 CREATE TABLE users 
 (user_id SERIAL PRIMARY KEY,
 email VARCHAR(250),
