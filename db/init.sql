@@ -23,6 +23,7 @@ category_id INTEGER REFERENCES categories(category_id));
 CREATE TABLE IF NOT EXISTS favorite_movies 
 (movie_id SERIAL PRIMARY KEY,
 category_id INTEGER REFERENCES categories(category_id),
+user_id INTEGER REFERENCES users(user_id),
 movie_genre VARCHAR(250),
 movie_name VARCHAR(250),
 description VARCHAR(250),
