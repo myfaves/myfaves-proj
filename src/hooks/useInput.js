@@ -7,6 +7,10 @@ const useInput = initialState => {
       ...values,
       [target.name]: target.value
     })
+  }, () => {
+    for(let key in values){
+      setValues({[key]: ''})
+    }
   }]
 }
 
