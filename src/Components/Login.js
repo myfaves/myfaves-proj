@@ -29,7 +29,7 @@ const Login = (props) => {
             login()
           }}
         >
-          <h1>Welcome Back :)</h1>
+          <h1>Welcome Back {":)"}</h1>
           <Input
             name="email"
             value={email}
