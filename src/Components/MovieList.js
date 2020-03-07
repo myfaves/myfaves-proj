@@ -1,9 +1,10 @@
 import React from 'react'
 import Movie from './Movie'
+import '../Style/movie.css'
 
 const MovieList = (props) => {
   return (
-    <div>
+    <div className="movielist-container">
       {
         props.movies.map((movie, i) => {
           return (
