@@ -1,15 +1,23 @@
-import React from 'react'
+import React from 'react';
 import useInput from "../hooks/useInput"
 import Input from './Reusable/Input'
+import { connect } from 'react-redux'
+import { setUser } from '../redux/reducer'
 import { withRouter } from 'react-router-dom'
+import axios from 'axios'
 import '../Style/login.css'
-
 const Login = (props) => {
   const [{ email, password }, setValues] = useInput({
     email: "",
     password: ""
   })
-  // const login = () => {}
+  const login = () => {
+    axios.post("/auth/login", { email, password })
+    .then(res => {
+      props.setUser(res.data)
+      props.history.push('/')
+    }).catch(err => console.log(err))
+  }
   return (
     <div className="login-page">
       <header id="login-logo">MYFaves</header>
@@ -17,27 +25,27 @@ const Login = (props) => {
         <form
           onSubmit={e => {
             e.preventDefault()
-            console.log(`Username: ${email} Password: ${password}`)
-            // login()
+            console.log(`Email: ${email} Password: ${password}`)
+            login()
           }}
         >
-          <h1>Sign In</h1>
+          <h1>Welcome Back :)</h1>
           <Input
             name="email"
             value={email}
             placeHolder="Email"
-            onChange={setValues}
+            handleChange={setValues}
           />
           <Input
             type="password"
             name="password"
             value={password}
             placeHolder="Password"
-            onChange={setValues}
+            handleChange={setValues}
           />
-          <a>Forgot your password?</a>
+          <div id="forgot">Forgot your password?</div>
           <div className="login-button-container">
-            <button type="submit">Login</button>
+            <button type="submit" onClick={login}>Login</button>
             <button onClick={() => props.history.push('/register')} type="submit">Register</button>
           </div>
         </form>
@@ -45,5 +53,4 @@ const Login = (props) => {
     </div>
   )
 }
-
-export default withRouter(Login)
+export default withRouter(connect(null, { setUser })(Login));

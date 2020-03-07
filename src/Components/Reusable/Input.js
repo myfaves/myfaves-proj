@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../Style/input.css'
 
-export default ({ setValue, value, name, placeHolder, reff = null, charLimit = 60, type = 'text' }) => {
+export default ({ handleChange, value, name, placeHolder, reff = null, charLimit = 60, type = 'text' }) => {
   const [ focus, setFocus ] = React.useState(false)
 
   return (
@@ -12,7 +12,7 @@ export default ({ setValue, value, name, placeHolder, reff = null, charLimit = 6
         className="myfaves-input"
         type={type}
         value={value}
-        onChange={setValue}
+        onChange={handleChange}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
         ref={reff}

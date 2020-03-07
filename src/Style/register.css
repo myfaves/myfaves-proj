@@ -1,0 +1,48 @@
+.register-page{
+    height: 100vh;
+    width: 100%;
+    background-color: #171717;
+    display: flex;
+    flex-direction: column;
+}
+.register-body {
+    height: 650px;
+    padding-top: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.register-body h1 {
+    font-size: 2em;
+    color: #FFF;
+    font-weight: 250;
+    display: flex;
+    align-content: center;
+  }
+.register-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+button {
+    box-sizing: border-box;
+    margin: 10px;
+    width: 300px;
+    font-weight: 700;
+    font-size: 14px;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    padding: 12px 21px;
+    background-color: #f54f4f;
+    color: #FFF;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+  }
+  button:hover {
+    color: #fff;
+    background-color: #fd7272;
+    transition: 0.1s ease-in-out;
+  }
