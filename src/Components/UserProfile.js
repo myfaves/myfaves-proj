@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import Input from "./Reusable/Input"
 import useCheckUser from "../hooks/useCheckUser"
 import useInput from "../hooks/useInput"
+import {toast} from 'react-toastify'
 
 const UserProfile = ({ user, history }) => {
   useCheckUser(user, history.push)
@@ -18,7 +19,9 @@ const UserProfile = ({ user, history }) => {
     console.log(
       `First Name: ${first_name}, Last Name: ${last_name}, Email: ${email}, Age: ${age}`
     )
+    setEditToggle(false)
     //submit functionality to come
+    toast.success('profile updated successfully')
   }
   return (
     <div>
