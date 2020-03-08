@@ -7,6 +7,7 @@ const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
 //CONTROLLERS
 const authCtrl = require("./controllers/authController")
+const categoryCtrl = require('./controllers/categoryController')
 const movieCtrl = require('./controllers/movieController')
 
 //MIDDLEWARE
@@ -21,6 +22,7 @@ app.use(
 )
 // app.use((req, res, next) => {
 //   console.log(`${new Date()} - ${req.method} request for ${req.url}`)
+//   next()
 // })
 
 //DB CONNECTION
@@ -38,6 +40,10 @@ app.post("/auth/logout", authCtrl.logout)
 app.get("/auth/user", authCtrl.getUser)
 
 //FAVES ENDPOINTS
+
+//USER CATEGORY ENDPOINTS
+app.get('/api/categories', categoryCtrl.getCategories)
+app.post('/api/categories/:category_id', categoryCtrl.addCategory)
 
 //MOVIE FAVES ENDPOINTS
 app.get('/api/movies', movieCtrl.getFavorites)
