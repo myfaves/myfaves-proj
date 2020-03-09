@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import SearchBar from './SearchBar'
 import CategoryList from './CategoryList'
 import axios from 'axios'
+import {REACT_APP_GAME, REACT_APP_MOVIE} from '../.config.js'
+require('dotenv').config()
 
 class Dashboard extends Component {
   constructor(props) {
@@ -9,11 +11,12 @@ class Dashboard extends Component {
     this.state = {
       movies: [],
       searchMovies: '',
-      games: []
+      games: [],
+      movieKey: REACT_APP_MOVIE,
+      gameKey: REACT_APP_GAME
+
     }
-    this.movieKey = process.env.REACT_APP_MOVIE
-    // this.gameKey1 = process.env.REACT_APP_GAME1
-    this.gameKey2 = process.env.REACT_APP_GAME2
+
   }
 
   componentDidMount = () => {
@@ -23,7 +26,7 @@ class Dashboard extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`https://api.themoviedb.org/3/search/movie/?api_key=${this.movieKey}&query=${this.state.searchMovies}`)
+    fetch(`https://api.themoviedb.org/3/search/movie/?api_key=${this.state.movieKey}&query=${this.state.searchMovies}`)
     .then(data => data.json())
     .then(data => {
       console.log(data)
@@ -38,11 +41,10 @@ getGames = () => {
     "headers":{
     "content-type":"application/octet-stream",
     "x-rapidapi-host":"rawg-video-games-database.p.rapidapi.com",
-    "x-rapidapi-key":"fd33264e0fmsh9171913f389298ap1c1896jsn26e79db88f45"
+    "x-rapidapi-key": this.state.gameKey
     }
     })
     .then((response)=>{
-      // console.log(response.data.results)
       this.setState({games: response.data.results})
     })
     .catch((error)=>{
@@ -54,6 +56,7 @@ getGames = () => {
     this.setState({searchMovies: e.target.value})
   }
   render(){
+    
   
     return(
       <div>
