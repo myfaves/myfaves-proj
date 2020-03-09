@@ -56,6 +56,7 @@ getGames = () => {
     this.setState({searchMovies: e.target.value})
   }
   render(){
+    
   
     return(
       <div>

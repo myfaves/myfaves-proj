@@ -28,6 +28,7 @@ const CategoryList = (props) => {
                 <div>{game.name}</div>
               </div>
             )
+            
           })
         }
       </div>
