@@ -4,6 +4,7 @@ import Dashboard from './Components/Dashboard'
 import Login from './Components/Login'
 import Register from './Components/Register'
 import Picker from './Components/Picker'
+import MyFavorites from './Components/MyFavorites'
 import UserProfile from './Components/UserProfile'
 
 export default (
@@ -12,6 +13,7 @@ export default (
     <Route exact path = '/login' component={Login} />
     <Route exact path = '/register' component={Register} />
     <Route exact path = '/picker' component={Picker} />
+    <Route exact path = '/favorites' component={MyFavorites} />
     <Route exact path = '/userprofile' component={UserProfile} />
   </Switch>
 )
