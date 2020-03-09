@@ -26,7 +26,6 @@ const CategoryList = (props) => {
               game.background_image == null ? <img src={'https://jschof.com/wp-content/uploads/2019/10/output-onlinepngtools-1024x943.png'} alt="card-three" style={{width: 300, height: 250}} ></img> : <img src={game.background_image} alt="card-four" style={{width: 300, height: 250}}/> 
             }
                 </div>
-            <p>{game.name}</p>
               </div>
             )
           })
