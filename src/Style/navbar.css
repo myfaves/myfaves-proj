@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+
+.nav-bar {
+    height: 70px;
+    width: 100%;
+    padding: 4px;
+    background-color: #171717;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-logo {
+    font-family: 'Lobster', curvsive;
+    padding-left: 8px;
+    font-size: 27px;
+    color: #FFF;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.login-logo:hover {
+    transform: scale(1.1);
+    color: #DEB841;
+}
+
+.ipc-icon {
+    padding-right: 3px;
+    height: 29px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.ipc-icon:hover {
+    transform: scale(1.2);
+    color: #DEB841;
+}
+
+#sideNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .menu-content{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #FFF;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 300;
+  }
+  
+  .menu-content:hover {
+    color: #DEB841;
+  }
+
+  .menu-content-side{
+    padding: 15px 8px 15px 30px;
+    font-size: 18px;
+    color: #FFF;
+    display: flex;
+    align-items: flex-end;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  
+  .menu-content-side:hover {
+    background-color: #DEB841;
+  }
+
+  .menu-close{
+    color: #DEB841;
+
+
+  }
+  
+  .menu-close{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+#desktop-nav {
+    height: 70px;
+    background-color: #171717;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+  
+@media(max-width: 415px){
+    #desktop-nav {
+      display: none;
+    }
+    #sideNav {
+      display: initial;
+    }
+  }
+   
+@media(min-width: 415px){
+    #sideNav{
+      display: none;
+    }
+    .ipc-icon {
+        display: none;
+    }
+  }

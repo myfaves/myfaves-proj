@@ -9,8 +9,8 @@ import "react-toastify/dist/ReactToastify.css"
 const App = ({user}) => {
   return (
     <div className="App">
-      {user && user.user_id && <NavBar />}
-     {routes}
+      {user && user.user_id && <NavBar />}     
+      {routes}
      <ToastContainer />
     </div>
   );
