@@ -13,7 +13,7 @@ class Dashboard extends Component {
     }
     this.movieKey = process.env.REACT_APP_MOVIE
     // this.gameKey1 = process.env.REACT_APP_GAME1
-    // this.gameKey2 = process.env.REACT_APP_GAME2
+    this.gameKey2 = process.env.REACT_APP_GAME2
   }
 
   componentDidMount = () => {
