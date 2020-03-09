@@ -1,14 +1,15 @@
 require("dotenv").config({ path: `${__dirname}/../.env` })
 const express = require("express")
-const session = require('express-session')
+const session = require("express-session")
 const massive = require("massive")
 const app = express()
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
 //CONTROLLERS
 const authCtrl = require("./controllers/authController")
-const categoryCtrl = require('./controllers/categoryController')
-const movieCtrl = require('./controllers/movieController')
+const userCtrl = require("./controllers/userController")
+const categoryCtrl = require("./controllers/categoryController")
+const movieCtrl = require("./controllers/movieController")
 
 //MIDDLEWARE
 app.use(express.json())
@@ -27,9 +28,11 @@ app.use((req, res, next) => {
 
 //DB CONNECTION
 massive(CONNECTION_STRING).then(db => {
-  app.set('db', db)
+  app.set("db", db)
   console.log("Database Connected")
-  app.listen(SERVER_PORT, () => console.log(`Server listening on ${SERVER_PORT}`))
+  app.listen(SERVER_PORT, () =>
+    console.log(`Server listening on ${SERVER_PORT}`)
+  )
 })
 
 //ENDPOINTS
@@ -39,13 +42,16 @@ app.post("/auth/login", authCtrl.login)
 app.post("/auth/logout", authCtrl.logout)
 app.get("/auth/user", authCtrl.getUser)
 
+//USER ENDPOINTS
+app.put("/api/user", userCtrl.editUser)
+
 //FAVES ENDPOINTS
 
 //USER CATEGORY ENDPOINTS
-app.get('/api/categories', categoryCtrl.getCategories)
-app.post('/api/categories/:category_id', categoryCtrl.addCategory)
+app.get("/api/categories", categoryCtrl.getCategories)
+app.post("/api/categories/:category_id", categoryCtrl.addCategory)
 
 //MOVIE FAVES ENDPOINTS
-app.get('/api/movies', movieCtrl.getFavorites)
-app.post('/api/movies', movieCtrl.addFavorite)
-app.delete('/api/movies/:movie_id', movieCtrl.deleteFavorite)
+app.get("/api/movies", movieCtrl.getFavorites)
+app.post("/api/movies", movieCtrl.addFavorite)
+app.delete("/api/movies/:movie_id", movieCtrl.deleteFavorite)
