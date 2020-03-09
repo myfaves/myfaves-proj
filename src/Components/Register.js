@@ -50,6 +50,7 @@ const Register = props => {
             handleChange={setValues}
           />
           <Input
+            type="number"
             name="age"
             value={age}
             placeHolder="Age"
