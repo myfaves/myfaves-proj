@@ -20,10 +20,10 @@ app.use(
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
   })
 )
-// app.use((req, res, next) => {
-//   console.log(`${new Date()} - ${req.method} request for ${req.url}`)
-//   next()
-// })
+app.use((req, res, next) => {
+  console.log(`${new Date()} - ${req.method} request for ${req.url}`)
+  next()
+})
 
 //DB CONNECTION
 massive(CONNECTION_STRING).then(db => {

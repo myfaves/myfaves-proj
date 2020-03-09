@@ -2,14 +2,23 @@ import React from 'react';
 import './App.css';
 import NavBar from './Components/NavBar'
 import routes from './routes'
+import {connect} from 'react-redux'
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
-const App = (props) => {
+const App = ({user}) => {
   return (
     <div className="App">
-      <NavBar />
+      {user && user.user_id && <NavBar />}
      {routes}
+     <ToastContainer />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  const {user} = state
+  return {user}
+}
+
+export default connect(mapStateToProps)(App)
