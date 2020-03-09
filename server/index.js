@@ -2,6 +2,7 @@ require("dotenv").config({ path: `${__dirname}/../.env` })
 const express = require("express")
 const session = require("express-session")
 const massive = require("massive")
+const cors = require("cors")
 const app = express()
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
@@ -13,6 +14,7 @@ const movieCtrl = require("./controllers/movieController")
 
 //MIDDLEWARE
 app.use(express.json())
+app.use(cors())
 app.use(
   session({
     secret: SESSION_SECRET,

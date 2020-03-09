@@ -1,3 +1,4 @@
+
 .search-bar-input[type=text] {
   width: 15%;
   -webkit-transition: width 0.4s ease-in-out;
@@ -7,3 +8,4 @@
 .search-bar-input[type=text]:focus {
   width: 100%;
 }
+

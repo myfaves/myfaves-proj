@@ -21,7 +21,7 @@ const Register = props => {
     axios.post('/auth/register', { email, password, first_name, last_name, age })
       .then(res => {
         props.setUser(res.data)
-        props.history.push('/')
+        props.history.push('/picker')
       }).catch(err => console.log(err))
   }
   
