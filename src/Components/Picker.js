@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from "react"
-import SearchBar from "./SearchBar"
-import MovieList from "./MovieList"
-import axios from 'axios'
+import React from 'react'
+import '../Style/picker.css'
 
 const Picker = props => {
-  const {REACT_APP_MOVIE, REACT_APP_GAME} = process.env
-  const [searchMovies, setSearchMovies] = useState("")
-  const [movies, setMovies] = useState([])
-  useEffect(() => {
-    getGames()
-  }, [])
-  const submitMovies = e => {
-    e.preventDefault()
-    fetch(
-      `https://api.themoviedb.org/3/search/movie/?api_key=${REACT_APP_MOVIE}&query=${searchMovies}`
-    )
-      .then(data => data.json())
-      .then(data => setMovies(data.results))
-      .catch(err => console.log(err))
-  }
-  
   return (
-    <div>
-      <SearchBar handleSubmit={submitMovies} handleChange={setSearchMovies} />
-      <MovieList movies={movies} />
+    <div className="picker-page">
+      <h1>HOLD UP THERE COWPERSON...</h1>
+      <p>Before you start. Pick a few of your favorites!</p>
+      <div className="favorties-container">
+        <div className="favorties-card">Movies</div>
+        <br/>
+        <div className="favorties-card">Games</div>
+        <br/>
+        <div className="favorties-card">Books</div>
+      </div>
     </div>
   )
 }

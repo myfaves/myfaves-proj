@@ -17,7 +17,7 @@ const NavBar = (props) => {
     axios.post('/auth/logout')
       .then(res => {
         props.setUser(res.data)
-        props.history.push('/login')
+        props.history.push('/logout')
       }).catch(err => console.log(err))
   }
 
