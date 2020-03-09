@@ -35,7 +35,7 @@ button {
     border: 2px solid transparent;
     border-radius: 25px;
     padding: 12px 21px;
-    background-color: #f54f4f;
+    background-color: #DEB841;
     color: #FFF;
     text-transform: uppercase;
     cursor: pointer;
@@ -43,6 +43,6 @@ button {
   }
   button:hover {
     color: #fff;
-    background-color: #fd7272;
+    background-color: #EDD897;
     transition: 0.1s ease-in-out;
   }
