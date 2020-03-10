@@ -1,7 +1,17 @@
 import React from "react"
 import "../Style/categories.css"
+import axios from "axios"
+import {toast} from 'react-toastify'
 
 const Movie = ({image, body}) => {
+  const addMovie = () => {
+    axios.post('/api/movies', body).then(res => {
+      
+      toast.success('Added movie to Favorites')
+    })
+    .catch(err => console.log(err))
+  }
+
   return (
     <div className="movie-card-image">
       {!image ? (
@@ -23,6 +33,7 @@ const Movie = ({image, body}) => {
           style={{ width: 300, height: 250 }}
         />
       )}
+      <button onClick={addMovie}>Favorite</button>
     </div>
   )
 }
