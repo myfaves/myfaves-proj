@@ -9,7 +9,6 @@ require("dotenv").config()
 const Games = props => {
   const [games, setGames] = useState([])
   const [{ searchGames }, setValues] = useInput({ searchGames: "" })
-  const gameKey = REACT_APP_RAPID
 
   useEffect(() => {
     axios({
@@ -18,7 +17,7 @@ const Games = props => {
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
-        "x-rapidapi-key": gameKey
+        "x-rapidapi-key": REACT_APP_RAPID
       }
     })
       .then(response => {
@@ -37,7 +36,7 @@ const Games = props => {
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
-        "x-rapidapi-key": gameKey
+        "x-rapidapi-key": REACT_APP_RAPID
       }
     })
       .then(response => {
@@ -60,13 +59,14 @@ const Games = props => {
         <div className="gamelist-container">
           {games.map((game, i) => {
             console.log(game)
-            const { background_image, name, metacritic } = game
+            const { background_image, name, metacritic, id } = game
             return (
               <div className="game-container" key={i}>
                 <Movie
                   key={i}
                   image={background_image}
                   body={{
+                    externalId: id,
                     image: background_image,
                     name,
                     rating: metacritic,
