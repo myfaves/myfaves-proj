@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import useInput from "../../hooks/useInput"
 import SearchBar from "../SearchBar"
 import Movie from "../Movie"
-import { REACT_APP_GAME, REACT_APP_MOVIE } from "../../.config.js"
+import { REACT_APP_MOVIE } from "../../.config.js"
+import axios from 'axios'
 require("dotenv").config()
 
 const Movies = props => {
@@ -12,7 +13,7 @@ const Movies = props => {
 
   const submitMovie = e => {
     e.preventDefault()
-    fetch(
+    axios.get(
       `https://api.themoviedb.org/3/search/movie/?api_key=${movieKey}&query=${searchMovies}`
     )
       .then(data => data.json())
