@@ -62,4 +62,4 @@ app.delete("/api/movies/:movie_id", movieCtrl.deleteFavorite)
 //GAME FAVES ENDPOINTS
 app.get("/api/games", gameCtrl.getFavorites)
 app.post("/api/games", gameCtrl.addFavorite)
-app.delete("/api/games/:games_id", gameCtrl.deleteFavorite)
+app.delete("/api/games/:game_id", gameCtrl.deleteFavorite)
