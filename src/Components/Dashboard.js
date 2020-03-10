@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import SearchBar from './SearchBar'
 import CategoryList from './CategoryList'
 import axios from 'axios'
-import {REACT_APP_GAME, REACT_APP_MOVIE} from '../.config.js'
+import {REACT_APP_GAME, REACT_APP_MOVIE} from '../config'
 require('dotenv').config()
 
 class Dashboard extends Component {

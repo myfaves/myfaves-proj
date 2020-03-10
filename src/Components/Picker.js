@@ -11,7 +11,9 @@ const Picker = (props) => {
         <br/>
         <div className="favorties-card">Games</div>
         <br/>
-        <div className="favorties-card">Books</div>
+        <div className="favorties-card">Music</div>
+        <br/>
+        <div className="favorties-card">T.V. Show</div>
       </div>
     </div>
   )
