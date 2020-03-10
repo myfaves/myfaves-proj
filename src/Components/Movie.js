@@ -3,11 +3,11 @@ import "../Style/categories.css"
 import axios from "axios"
 import {toast} from 'react-toastify'
 
-const Movie = ({image, body}) => {
-  const addMovie = () => {
-    axios.post('/api/movies', body).then(res => {
+const Movie = ({image, body, url, msg}) => {
+  const addFavorite = () => {
+    axios.post(url, body).then(res => {
       
-      toast.success('Added movie to Favorites')
+      toast.success(msg)
     })
     .catch(err => console.log(err))
   }
@@ -33,7 +33,7 @@ const Movie = ({image, body}) => {
           style={{ width: 300, height: 250 }}
         />
       )}
-      <button onClick={addMovie}>Favorite</button>
+      <button onClick={addFavorite}>Favorite</button>
     </div>
   )
 }

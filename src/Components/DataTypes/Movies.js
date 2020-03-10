@@ -50,6 +50,8 @@ const Movies = props => {
               <Movie
                 key={i}
                 image={poster_path}
+                url={'/api/movies'}
+                msg={'Added movie to Favorites'}
                 body={{
                   external_id: id,
                   image: poster_path,

@@ -65,6 +65,8 @@ const Games = props => {
                 <Movie
                   key={i}
                   image={background_image}
+                  url={'/api/movies'}
+                  msg={'Added movie to Favorites'}
                   body={{
                     external_id: id,
                     image: background_image,
