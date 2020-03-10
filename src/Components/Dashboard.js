@@ -56,8 +56,7 @@ getGames = () => {
     this.setState({searchMovies: e.target.value})
   }
   render(){
-    
-  
+
     return(
       <div>
         <SearchBar handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
