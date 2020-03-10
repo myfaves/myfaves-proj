@@ -4,10 +4,10 @@ import axios from "axios"
 import {toast} from 'react-toastify'
 
 const Movie = ({image, body}) => {
-  const addMovie = (body) => {
+  const addMovie = () => {
     axios.post('/api/movies', body).then(res => {
       
-      toast.success('add movie')
+      toast.success('Added movie to Favorites')
     })
     .catch(err => console.log(err))
   }
@@ -33,7 +33,7 @@ const Movie = ({image, body}) => {
           style={{ width: 300, height: 250 }}
         />
       )}
-      <button onClick={addMovie}></button>
+      <button onClick={addMovie}>Favorite</button>
     </div>
   )
 }
