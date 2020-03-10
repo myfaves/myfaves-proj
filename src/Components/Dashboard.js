@@ -12,6 +12,7 @@ class Dashboard extends Component {
       movies: [],
       searchMovies: '',
       games: [],
+      searchGames: '',
       movieKey: REACT_APP_MOVIE,
       gameKey: REACT_APP_GAME
 
@@ -19,9 +20,9 @@ class Dashboard extends Component {
 
   }
 
-  componentDidMount = () => {
-    this.getGames();
-  }
+  // componentDidMount = () => {
+  //   this.getGames();
+  // }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -32,28 +33,28 @@ class Dashboard extends Component {
       console.log(data)
       this.setState({movies: [...data.results]})
     })
+    axios({
+      "method":"GET",
+      "url":`https://rawg-video-games-database.p.rapidapi.com/games?search=${this.state.searchGames}`,
+      "headers":{
+      "content-type":"application/octet-stream",
+      "x-rapidapi-host":"rawg-video-games-database.p.rapidapi.com",
+      "x-rapidapi-key": this.state.gameKey
+      }
+      })
+      .then((response)=>{
+        this.setState({games: response.data.results})
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
   }
 
-getGames = () => {
-  axios({
-    "method":"GET",
-    "url":"https://rawg-video-games-database.p.rapidapi.com/games",
-    "headers":{
-    "content-type":"application/octet-stream",
-    "x-rapidapi-host":"rawg-video-games-database.p.rapidapi.com",
-    "x-rapidapi-key": this.state.gameKey
-    }
-    })
-    .then((response)=>{
-      this.setState({games: response.data.results})
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
-}
+// getGames = () => {
+// }
 
   handleChange = (e) => {
-    this.setState({searchMovies: e.target.value})
+    this.setState({searchMovies: e.target.value, searchGames: e.target.value})
   }
   render(){
 
