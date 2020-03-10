@@ -1,6 +1,8 @@
+/* MOVIE STYLES */
 .movielist-container {
     display: flex;
     padding: 0 55px;
+    flex-wrap: wrap;
 }
 
 .movie-container {
@@ -22,9 +24,11 @@
     transform: scale(1.5) !important;
 }
 
+/* GAME STYLES */
 .gamelist-container {
     display: flex;
     padding: 0 55px;
+    flex-wrap: wrap;
 }
 
 .game-container {
@@ -33,3 +37,15 @@
     margin: 0 2px;
     transition: transform 300ms ease 100ms;
   }
+
+.gamelist-container:hover .game-container{
+    transform: translateX(-25%);
+}
+
+.game-container:hover ~ .game-container {
+    transform: translateX(25%);
+}
+
+.game-container:hover {
+    transform: scale(1.5) !important;
+}
