@@ -44,14 +44,14 @@ const Movies = props => {
       <div className="list-container">
         <div className="movielist-container">
           {movies.map((movie, i) => {
-            console.log(movie)
+            // console.log(movie)
             const { poster_path, original_title, vote_average, id } = movie
             return (
               <Movie
                 key={i}
                 image={poster_path}
                 body={{
-                  externalId: id,
+                  external_id: id,
                   image: poster_path,
                   name: original_title,
                   rating: vote_average,
