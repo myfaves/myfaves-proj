@@ -12,16 +12,16 @@ module.exports = {
   addFavorite: (req, res) => {
     const db = req.app.get("db")
     const { user_id } = req.session.user
-    const { movie_genre, movie_name, description, poster_path } = req.body
+    const { name, image, rating, external_id } = req.body
     const category_id = 1
     db.movie
       .add_favorite({
         user_id,
         category_id,
-        movie_genre,
-        movie_name,
-        description,
-        poster_path
+        name,
+        image,
+        rating,
+        external_id
       })
       .then(results => {
         res.status(200).send(results)
