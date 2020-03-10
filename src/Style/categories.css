@@ -2,6 +2,7 @@
 .movielist-container {
     display: flex;
     padding: 0 55px;
+    flex-wrap: wrap;
 }
 
 .movie-container {
@@ -27,6 +28,7 @@
 .gamelist-container {
     display: flex;
     padding: 0 55px;
+    flex-wrap: wrap;
 }
 
 .game-container {
