@@ -1,16 +1,23 @@
-import React from 'react'
-import '../Style/searchbar.css'
+import React from "react"
+import "../Style/searchbar.css"
 
-const SearchBar = (props) => {
-    return (
+const SearchBar = ({ handleSubmit, handleChange, value, name }) => {
+  return (
+    <div>
+      <form className="search-bar" action="" onSubmit={handleSubmit}>
         <div>
-            <form className="search-bar"action="" onSubmit={props.handleSubmit}>
-            <div>
-                <input className="search-bar-input"placeholder="Search..." type="text" onChange={props.handleChange}/>
-            </div>
-            </form>
+          <input
+            className="search-bar-input"
+            placeholder="Search..."
+            type="text"
+            onChange={handleChange}
+            value={value}
+            name={name}
+          />
         </div>
-    )
+      </form>
+    </div>
+  )
 }
 
-export default SearchBar;
+export default SearchBar
