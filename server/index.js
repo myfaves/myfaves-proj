@@ -11,6 +11,7 @@ const authCtrl = require("./controllers/authController")
 const userCtrl = require("./controllers/userController")
 const categoryCtrl = require("./controllers/categoryController")
 const movieCtrl = require("./controllers/movieController")
+const gameCtrl = require('./controllers/gameController')
 
 //MIDDLEWARE
 app.use(express.json())
@@ -57,3 +58,8 @@ app.post("/api/categories/:category_id", categoryCtrl.addCategory)
 app.get("/api/movies", movieCtrl.getFavorites)
 app.post("/api/movies", movieCtrl.addFavorite)
 app.delete("/api/movies/:movie_id", movieCtrl.deleteFavorite)
+
+//GAME FAVES ENDPOINTS
+app.get("/api/games", gameCtrl.getFavorites)
+app.post("/api/games", gameCtrl.addFavorite)
+app.delete("/api/games/:games_id", gameCtrl.deleteFavorite)

@@ -1,0 +1,1 @@
+SELECT * FROM favorite_games WHERE user_id = $1;

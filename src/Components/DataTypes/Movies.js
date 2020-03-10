@@ -48,7 +48,7 @@ const Movies = props => {
             const { poster_path, original_title, vote_average, id } = movie
             return (
               <Movie
-                key={i}
+                key={id}
                 image={poster_path}
                 url={'/api/movies'}
                 msg={'Added movie to Favorites'}

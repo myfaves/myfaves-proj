@@ -2,7 +2,7 @@ module.exports = {
   getFavorites: (req, res) => {
     const db = req.app.get("db")
     const { user_id } = req.session.user
-    db.movie
+    db.game
       .get_favorites(user_id)
       .then(results => res.status(200).send(results))
       .catch(err => res.status(500).send(err))
@@ -11,8 +11,8 @@ module.exports = {
     const db = req.app.get("db")
     const { user_id } = req.session.user
     const { name, image, rating, external_id } = req.body
-    const category_id = 1
-    db.movie
+    const category_id = 2
+    db.game
       .add_favorite({
         user_id,
         category_id,
