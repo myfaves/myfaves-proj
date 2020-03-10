@@ -36,8 +36,8 @@ movie-card {
     -5px -5px 30px 15px rgba(0,0,0,0.22);
 }
 
-/* GAME STYLES */
-.gamelist-container {
+/* GAME/MUSIC/SHOW STYLES */
+.card-container {
     z-index: 0;
     width: 100%;
     display: flex;
@@ -45,7 +45,7 @@ movie-card {
     flex-wrap: wrap;
 }
 
-.game-card {
+.card {
     margin: 30px auto;
     width: 300px;
     height: 300px;
@@ -55,20 +55,20 @@ movie-card {
     transition: 0.4s;
 }
 
-.game-card .game-card-image {
+.card .card-image {
     width: inherit;
     height: inherit;
     border-radius: 40px;
 }
 
-.game-card .game-card-image img {
+.card .card-image img {
     width: inherit;
     height: inherit;
     border-radius: 40px;
     object-fit: cover;
 }
 
-.game-card .game-card-title {
+.card .card-title {
     text-align: center;
     border-radius: 0px 0px 40px 40px;
     font-family: sans-serif;
@@ -93,3 +93,4 @@ movie-card {
       flex-direction: column;
     }
 }
+

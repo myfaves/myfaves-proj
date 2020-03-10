@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import SearchBar from './SearchBar'
 import CategoryList from './CategoryList'
 import axios from 'axios'
-import {REACT_APP_GAME, REACT_APP_MOVIE} from '../.config.js'
+import {REACT_APP_RAPID, REACT_APP_MOVIE} from '../.config.js'
 require('dotenv').config()
 
 class Dashboard extends Component {
@@ -13,16 +13,16 @@ class Dashboard extends Component {
       searchMovies: '',
       games: [],
       searchGames: '',
+      songs: [],
+      searchSongs: '',
+      shows: [],
+      searchShows: '',
       movieKey: REACT_APP_MOVIE,
-      gameKey: REACT_APP_GAME
+      rapidKey: REACT_APP_RAPID
 
     }
 
   }
-
-  // componentDidMount = () => {
-  //   this.getGames();
-  // }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ class Dashboard extends Component {
       "headers":{
       "content-type":"application/octet-stream",
       "x-rapidapi-host":"rawg-video-games-database.p.rapidapi.com",
-      "x-rapidapi-key": this.state.gameKey
+      "x-rapidapi-key": this.state.rapidKey
       }
       })
       .then((response)=>{
@@ -48,20 +48,55 @@ class Dashboard extends Component {
       .catch((error)=>{
         console.log(error)
       })
+      axios({
+        "method":"GET",
+        "url":"https://deezerdevs-deezer.p.rapidapi.com/search",
+        "headers":{
+        "content-type":"application/octet-stream",
+        "x-rapidapi-host":"deezerdevs-deezer.p.rapidapi.com",
+        "x-rapidapi-key": this.state.rapidKey
+        },"params":{
+        "q": this.state.searchSongs
+        }
+        })
+        .then((response)=>{
+          console.log(response)
+          this.setState({songs: response.data.data})
+        })
+        .catch((error)=>{
+          console.log(error)
+        })
+
+        axios({
+          "method":"GET",
+          "url":"https://tvjan-tvmaze-v1.p.rapidapi.com/search/shows",
+          "headers":{
+          "content-type":"application/octet-stream",
+          "x-rapidapi-host":"tvjan-tvmaze-v1.p.rapidapi.com",
+          "x-rapidapi-key":this.state.rapidKey
+          },"params":{
+          "q": this.state.searchShows
+          }
+          })
+          .then((response)=>{
+            console.log(response.data[0])
+            this.setState({shows: response.data})
+          })
+          .catch((error)=>{
+            console.log(error)
+          })
+      
   }
 
-// getGames = () => {
-// }
-
   handleChange = (e) => {
-    this.setState({searchMovies: e.target.value, searchGames: e.target.value})
+    this.setState({searchMovies: e.target.value, searchGames: e.target.value, searchSongs: e.target.value, searchShows: e.target.value})
   }
   render(){
 
     return(
       <div>
         <SearchBar handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-        <CategoryList movies={this.state.movies} games={this.state.games}/>
+        <CategoryList movies={this.state.movies} games={this.state.games} songs={this.state.songs} shows={this.state.shows}/>
       </div>
     );
   }
