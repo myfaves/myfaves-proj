@@ -1,6 +1,6 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
-import Dashboard from './Components/Dashboard'
+import Dashboard from './Components/DashboardFunctional'
 import Login from './Components/Login'
 import Register from './Components/Register'
 import Picker from './Components/Picker'
