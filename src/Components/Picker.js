@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Style/picker.css'
 
-const Picker = (props) => {
+const Picker = props => {
   return (
     <div className="picker-page">
       <h1>HOLD UP THERE COWPERSON...</h1>

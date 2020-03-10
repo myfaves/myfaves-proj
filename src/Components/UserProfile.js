@@ -4,8 +4,10 @@ import Input from "./Reusable/Input"
 import useCheckUser from "../hooks/useCheckUser"
 import useInput from "../hooks/useInput"
 import {toast} from 'react-toastify'
+import axios from 'axios'
+import {setUser} from '../redux/reducer'
 
-const UserProfile = ({ user, history }) => {
+const UserProfile = ({ user, history, setUser }) => {
   useCheckUser(user, history.push)
   const [{ first_name, last_name, age, email }, setValues] = useInput({
     first_name: user.first_name,
@@ -21,6 +23,9 @@ const UserProfile = ({ user, history }) => {
     )
     setEditToggle(false)
     //submit functionality to come
+    axios.put('/api/user', {first_name, last_name, age, email}).then(results => {
+      setUser(results.data)
+    }).catch(err => toast.error(err.data))
     toast.success('profile updated successfully')
   }
   return (
@@ -74,4 +79,4 @@ const mapStateToProps = store => {
   return { user }
 }
 
-export default connect(mapStateToProps)(UserProfile)
+export default connect(mapStateToProps, {setUser})(UserProfile)
