@@ -58,7 +58,7 @@ const Games = props => {
       <div className="list-container">
         <div className="gamelist-container">
           {games.map((game, i) => {
-            console.log(game)
+            // console.log(game)
             const { background_image, name, metacritic, id } = game
             return (
               <div className="game-container" key={i}>
@@ -66,7 +66,7 @@ const Games = props => {
                   key={i}
                   image={background_image}
                   body={{
-                    externalId: id,
+                    external_id: id,
                     image: background_image,
                     name,
                     rating: metacritic,
