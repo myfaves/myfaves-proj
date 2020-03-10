@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import useInput from "../../hooks/useInput"
 import SearchBar from "../SearchBar"
 import Movie from "../Movie"
 import { REACT_APP_MOVIE } from "../../.config.js"
-import axios from 'axios'
+import axios from "axios"
+import "../../Style/categories.css"
 require("dotenv").config()
 
 const Movies = props => {
@@ -11,14 +12,26 @@ const Movies = props => {
   const [{ searchMovies }, setValues] = useInput({ searchMovies: "" })
   const movieKey = REACT_APP_MOVIE
 
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${movieKey}&language=en-US&page=1`
+      )
+      .then(results => setMovies(results.data.results))
+    // .then(data => {
+    //   setMovies(data.results)
+    // })
+  }, [])
+
   const submitMovie = e => {
     e.preventDefault()
-    axios.get(
-      `https://api.themoviedb.org/3/search/movie/?api_key=${movieKey}&query=${searchMovies}`
-    )
-      .then(data => data.json())
-      .then(data => {
-        setMovies(data.results)
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie/?api_key=${movieKey}&query=${searchMovies}`
+      )
+      // .then(data => data.json())
+      .then(results => {
+        setMovies(results.data.results)
       })
   }
   return (
@@ -32,7 +45,20 @@ const Movies = props => {
       <div className="list-container">
         <div className="movielist-container">
           {movies.map((movie, i) => {
-            return <Movie key={i} image={movie.poster_path} />
+            console.log(movie)
+            const {poster_path, original_title, vote_average} = movie
+            return (
+              <Movie
+                key={i}
+                image={poster_path}
+                body={{
+                  image: poster_path,
+                  name: original_title,
+                  rating: vote_average,
+                  category_id: 1
+                }}
+              />
+            )
           })}
         </div>
       </div>
