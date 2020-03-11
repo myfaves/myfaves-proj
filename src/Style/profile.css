@@ -1,7 +1,45 @@
-.profile-container {
+.name-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: red;
+    box-shadow: 0 1px 5px;
+    width: 250px;
+    border-radius: 5px;
+    margin: 63px;
+}
+
+.biography {
+    width: 250px;
+    height: 150px;
+    box-shadow: 0 1px 5px;
+    border-radius: 5px;
+}
+
+.profile-btn {
+    width: 100px;
+}
+
+.interests {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 150px;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.prof-pic {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: lightgrey;
+    margin-left: 110px;
 }
