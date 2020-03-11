@@ -27,14 +27,14 @@ const NavBar = (props) => {
       <div className="login-logo" onClick={() => props.history.push('/')}>MYFaves</div>
       <nav id="desktop-nav">
         <div className="menu-content" onClick={() => props.history.push('/userprofile')}>Account</div>
-        <div className="menu-content">Favorites</div>
+        <div className="menu-content" onClick={() => props.history.push('/favorites')}>Favorites</div>
         <div className="menu-content">Friends</div>
         <div className="menu-content" onClick={logout}>Logout</div>
       </nav>
       <nav id="sideNav">
         <div className="menu-close" onClick={closeNav}>X</div>
         <div className="menu-content-side" onClick={() => props.history.push('/userprofile')}>Account</div>
-        <div className="menu-content-side">Favorites</div>
+        <div className="menu-content-side" onClick={() => props.history.push('/favorites')}>Favorites</div>
         <div className="menu-content-side">Friends</div>
         <div className="menu-content-side" onClick={logout}>Logout</div>
       </nav>
