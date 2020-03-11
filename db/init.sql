@@ -48,6 +48,12 @@ rating INTEGER,
 external_id INTEGER);
 
 
+CREATE TABLE IF NOT EXISTS favorite_games
+(game_id SERIAL PRIMARY KEY);
+
+CREATE TABLE IF NOT EXISTS favorite_songs
+(song_id SERIAL PRIMARY KEY);
+
 SELECT * FROM users;
 SELECT * FROM categories;
 SELECT * FROM user_categories;

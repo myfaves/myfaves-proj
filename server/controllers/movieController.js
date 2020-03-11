@@ -3,11 +3,9 @@ module.exports = {
     const db = req.app.get("db")
     const { user_id } = req.session.user
     db.movie
-    .get_favorites(user_id)
-    .then(results => {
-      return res.status(200).send(results)
-    })
-    .catch(err => res.status(500).send(err))
+      .get_favorites(user_id)
+      .then(results => res.status(200).send(results))
+      .catch(err => res.status(500).send(err))
   },
   addFavorite: (req, res) => {
     const db = req.app.get("db")

@@ -1,5 +1,5 @@
 .card-container {
-    margin: 12px;
+    margin: 30px 7px 0px 7px;
     padding: 0px;
 }
 
@@ -10,6 +10,10 @@
 .card-image img{
     max-height: 200px;
     max-width: 130px;
+}
+
+.card-image img:hover {
+    transform: scale(1.1);
 }
 
 

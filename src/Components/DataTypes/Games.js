@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
 import useInput from "../../hooks/useInput"
 import SearchBar from "../SearchBar"
-import Movie from "../Movie"
+import Card from "../Card"
 import axios from "axios"
+import "../../Style/datatypes.css"
 import { REACT_APP_RAPID } from "../../.config.js"
 require("dotenv").config()
 
@@ -48,38 +49,35 @@ const Games = props => {
   }
 
   return (
-    <div>
+    <div className="list-container">
       <SearchBar
         handleSubmit={submitGame}
         handleChange={setValues}
         value={searchGames}
         name="searchGames"
       />
-      <div className="list-container">
-        <div className="gamelist-container">
-          {games.map((game, i) => {
-            // console.log(game)
-            const { background_image, name, metacritic, id } = game
-            return (
-              <div className="game-container" key={i}>
-                <Movie
-                  key={id}
-                  image={background_image}
-                  url={'/api/games'}
-                  msg={'Added game to Favorites'}
-                  body={{
-                    external_id: id,
-                    image: background_image,
-                    name,
-                    rating: metacritic,
-                    category_id: 2
-                  }}
-                />
-                <div>{game.name}</div>
-              </div>
-            )
-          })}
-        </div>
+      <div className="data-list-container">
+        {games.map((game, i) => {
+          // console.log(game)
+          const { background_image, name, metacritic, id } = game
+          return (
+            <div className="data-container" key={i}>
+              <Card
+                key={i}
+                image={background_image}
+                msg={'Added game to Favorites'}
+                body={{
+                  external_id: id,
+                  image: background_image,
+                  name,
+                  rating: metacritic,
+                  category_id: 2
+                }}
+              />
+              <div>{game.name}</div>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

@@ -3,16 +3,17 @@ import Movies from "./DataTypes/Movies"
 import Games from "./DataTypes/Games"
 import Songs from "./DataTypes/Songs"
 import Shows from "./DataTypes/Shows"
+import '../Style/dashboard.css'
 
 const Dashboard = props => {
-  const [movieToggle, setMovieToggle] = useState(false)
-  const [gameToggle, setGameToggle] = useState(false)
-  const [songToggle, setSongToggle] = useState(false)
-  const [showToggle, setShowToggle] = useState(false)
+  const [movieToggle, setMovieToggle] = useState(true)
+  const [gameToggle, setGameToggle] = useState(true)
+  const [songToggle, setSongToggle] = useState(true)
+  const [showToggle, setShowToggle] = useState(true)
 
   console.log(showToggle)
   return (
-    <div>
+    <div className="dash-container">
       {/* <input
         type="checkbox"
         name="showToggle"
