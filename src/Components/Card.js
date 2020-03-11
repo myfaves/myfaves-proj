@@ -3,9 +3,9 @@ import "../Style/card.css"
 import axios from "axios"
 import { toast } from 'react-toastify'
 
-const Movie = ({ image, body, url, msg }) => {
+const Movie = ({ image, body, msg }) => {
   const addFavorite = () => {
-    axios.post(url, body).then(res => {
+    axios.post("/api/favorites", body).then(res => {
 
       toast.success(msg)
     })

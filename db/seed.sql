@@ -1,2 +1,5 @@
 INSERT INTO categories (category_name)
-VALUES ('Movies');
+VALUES ('Movies'),
+('Video Games'),
+('Songs'),
+('Shows');

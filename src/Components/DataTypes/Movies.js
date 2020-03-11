@@ -41,7 +41,7 @@ const Movies = props => {
           value={searchMovies}
           name="searchMovies"
         />
-      <div className="movielist-container">
+      <div className="data-list-container">
         {movies.map((movie, i) => {
           // console.log(movie)
           const { poster_path, original_title, vote_average, id } = movie
@@ -49,7 +49,6 @@ const Movies = props => {
             <Card
               key={i}
               image={poster_path}
-              url={'/api/movies'}
               msg={'Added movie to Favorites'}
               body={{
                 external_id: id,
