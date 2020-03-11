@@ -6,6 +6,7 @@ import useInput from "../hooks/useInput"
 import {toast} from 'react-toastify'
 import axios from 'axios'
 import {setUser} from '../redux/reducer'
+import '../Style/profile.css'
 
 const UserProfile = ({ user, history, setUser }) => {
   useCheckUser(user, history.push)
@@ -29,12 +30,10 @@ const UserProfile = ({ user, history, setUser }) => {
     toast.success('profile updated successfully')
   }
   return (
-    <div>
-      <button onClick={() => setEditToggle(!editToggle)}>
-        {!editToggle ? "Edit" : "Cancel"}{" "}
-      </button>
+    <div >
+    <p>My Account</p>
       {!editToggle ? (
-        <div>
+        <div className="profile-container">
           <h1>
             Name: {first_name} {last_name}
           </h1>
@@ -70,6 +69,9 @@ const UserProfile = ({ user, history, setUser }) => {
           <button type="submit">Save</button>
         </form>
       )}
+      <button className="profile-btn"onClick={() => setEditToggle(!editToggle)}>
+        {!editToggle ? "Edit" : "Cancel"}{" "}
+      </button>
     </div>
   )
 }
