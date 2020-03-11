@@ -4,7 +4,7 @@
     height: 70px;
     width: 100%;
     padding: 4px;
-    background-color: #171717;
+    background-color: #2b2a2a;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,7 +43,7 @@
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #111;
+    background-color: #2b2a2a;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -94,7 +94,7 @@
 
 #desktop-nav {
     height: 70px;
-    background-color: #171717;
+    background-color: #2b2a2a;
     display: flex;
     align-items: center;
     color: white;

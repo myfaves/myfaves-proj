@@ -1,0 +1,16 @@
+.card-container {
+    margin: 12px;
+    padding: 0px;
+}
+
+/* .card-container-top {
+
+} */
+
+.card-image img{
+    max-height: 200px;
+    max-width: 130px;
+}
+
+
+

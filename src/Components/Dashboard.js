@@ -3,6 +3,7 @@ import SearchBar from './SearchBar'
 import CategoryList from './CategoryList'
 import axios from 'axios'
 import {REACT_APP_RAPID, REACT_APP_MOVIE} from '../.config.js'
+
 require('dotenv').config()
 
 class Dashboard extends Component {
