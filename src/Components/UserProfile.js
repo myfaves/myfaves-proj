@@ -30,7 +30,8 @@ const UserProfile = ({ user, history, setUser }) => {
     toast.success('profile updated successfully')
   }
   return (
-    <div>
+    <div className="mainprof-container">
+      <div className="profile-card">
     <p>Profile</p>
     <div className="prof-pic">
     </div>
@@ -81,6 +82,7 @@ const UserProfile = ({ user, history, setUser }) => {
         <div className="interests">
           <p>Interests:</p>
         </div>
+      </div>
       </div>
     </div>
   )
