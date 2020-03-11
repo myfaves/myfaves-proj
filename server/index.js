@@ -10,18 +10,12 @@ const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 const authCtrl = require("./controllers/authController")
 const userCtrl = require("./controllers/userController")
 const categoryCtrl = require("./controllers/categoryController")
-<<<<<<< HEAD
-const movieCtrl = require("./controllers/movieController")
-const gameCtrl = require('./controllers/gameController')
-const songCtrl = require('./controllers/songController')
-=======
 const faveCtrl = require('./controllers/favoriteController')
 
 // const movieCtrl = require("./controllers/movieController")
 // const gameCtrl = require('./controllers/gameController')
 // const songCtrl = require('./controllers/songController')
 // const showCtrl = require('./controllers/showController')
->>>>>>> master
 
 //MIDDLEWARE
 app.use(express.json())

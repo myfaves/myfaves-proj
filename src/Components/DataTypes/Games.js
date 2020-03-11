@@ -56,7 +56,6 @@ const Games = props => {
         value={searchGames}
         name="searchGames"
       />
-<<<<<<< HEAD
       <div className="data-list-container">
         {games.map((game, i) => {
           // console.log(game)
@@ -79,33 +78,6 @@ const Games = props => {
             </div>
           )
         })}
-=======
-      <div className="list-container">
-        <div className="gamelist-container">
-          {games.map((game, i) => {
-            // console.log(game)
-            const { background_image, name, metacritic, id } = game
-            return (
-              <div className="game-container" key={i}>
-                <Movie
-                  key={id}
-                  image={background_image}
-                  url={'/api/games'}
-                  msg={'Added game to Favorites'}
-                  body={{
-                    external_id: id,
-                    image: background_image,
-                    name,
-                    rating: metacritic,
-                    category_id: 2
-                  }}
-                />
-                <div>{game.name}</div>
-              </div>
-            )
-          })}
-        </div>
->>>>>>> master
       </div>
     </div>
   )
