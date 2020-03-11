@@ -1,16 +1,16 @@
 .list-container {
     background-color: #171717;
+    height: 100vh;
     width: 100%;
     margin: 0px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     overflow-x: scroll;
 }
 
 .movielist-container {
+    height: 300px;
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: scroll;
     justify-content: center;
+    align-items: center;
 }

@@ -12,5 +12,9 @@
     max-width: 130px;
 }
 
+.card-image img:hover {
+    transform: scale(1.1);
+}
+
 
 

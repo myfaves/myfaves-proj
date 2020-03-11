@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import useInput from "../../hooks/useInput"
 import SearchBar from "../SearchBar"
-import Movie from "../Movie"
+import Card from "../Card"
 import axios from "axios"
 import { REACT_APP_RAPID } from "../../.config.js"
 require("dotenv").config()
@@ -62,7 +62,7 @@ const Games = props => {
             const { background_image, name, metacritic, id } = game
             return (
               <div className="game-container" key={i}>
-                <Movie
+                <Card
                   key={i}
                   image={background_image}
                   url={'/api/movies'}

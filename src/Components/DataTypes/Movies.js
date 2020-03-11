@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import useInput from "../../hooks/useInput"
 import SearchBar from "../SearchBar"
-import Movie from "../Movie"
+import Card from "../Card"
 import { REACT_APP_MOVIE } from "../../.config.js"
 import axios from "axios"
-import "../../Style/movies.css"
+import "../../Style/datatypes.css"
 require("dotenv").config()
 
 const Movies = props => {
@@ -35,18 +35,18 @@ const Movies = props => {
   }
   return (
     <div className="list-container">
-      <SearchBar
-        handleSubmit={submitMovie}
-        handleChange={setValues}
-        value={searchMovies}
-        name="searchMovies"
-      />
+        <SearchBar
+          handleSubmit={submitMovie}
+          handleChange={setValues}
+          value={searchMovies}
+          name="searchMovies"
+        />
       <div className="movielist-container">
         {movies.map((movie, i) => {
           // console.log(movie)
           const { poster_path, original_title, vote_average, id } = movie
           return (
-            <Movie
+            <Card
               key={i}
               image={poster_path}
               url={'/api/movies'}
