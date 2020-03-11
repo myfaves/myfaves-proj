@@ -1,0 +1,1 @@
+SELECT * FROM favorite_songs WHERE user_id = $1;
