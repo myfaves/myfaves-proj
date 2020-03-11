@@ -2,7 +2,7 @@ module.exports = {
   getFavorites: (req, res) => {
     const db = req.app.get("db")
     const { user_id } = req.session.user
-    db.movie
+    db.song
       .get_favorites(user_id)
       .then(results => res.status(200).send(results))
       .catch(err => res.status(500).send(err))
@@ -12,7 +12,7 @@ module.exports = {
     const { user_id } = req.session.user
     const { name, image, rating, external_id } = req.body
     const category_id = 3
-    db.show
+    db.song
       .add_favorite({
         user_id,
         category_id,
@@ -27,9 +27,9 @@ module.exports = {
   deleteFavorite: (req, res) => {
     const db = req.app.get("db")
     const { user_id } = req.session.user
-    const { show_id } = req.params
-    db.show
-      .delete_favorite(user_id, show_id)
+    const { song_id } = req.params
+    db.song
+      .delete_favorite(user_id, song_id)
       .then(results => res.status(200).send(results))
       .catch(err => res.status(500).send(err))
   }
