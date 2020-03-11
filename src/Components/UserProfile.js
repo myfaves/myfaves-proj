@@ -6,6 +6,7 @@ import useInput from "../hooks/useInput"
 import {toast} from 'react-toastify'
 import axios from 'axios'
 import {setUser} from '../redux/reducer'
+import '../Style/profile.css'
 
 const UserProfile = ({ user, history, setUser }) => {
   useCheckUser(user, history.push)
@@ -29,12 +30,13 @@ const UserProfile = ({ user, history, setUser }) => {
     toast.success('profile updated successfully')
   }
   return (
-    <div>
-      <button onClick={() => setEditToggle(!editToggle)}>
-        {!editToggle ? "Edit" : "Cancel"}{" "}
-      </button>
+    <div className="mainprof-container">
+      <div className="profile-card">
+    <p>Profile</p>
+    <div className="prof-pic">
+    </div>
       {!editToggle ? (
-        <div>
+        <div className="name-container">
           <h1>
             Name: {first_name} {last_name}
           </h1>
@@ -42,7 +44,7 @@ const UserProfile = ({ user, history, setUser }) => {
           <h1>Email: {email}</h1>
         </div>
       ) : (
-        <form onSubmit={updateProfile}>
+        <form className="name-container" onSubmit={updateProfile}>
           <Input
             name="first_name"
             value={first_name}
@@ -67,9 +69,21 @@ const UserProfile = ({ user, history, setUser }) => {
             placeHolder="Email"
             handleChange={setValues}
           />
-          <button type="submit">Save</button>
+          <button className="profile-btn" type="submit">Save</button>
         </form>
       )}
+      <button className="profile-btn"onClick={() => setEditToggle(!editToggle)}>
+        {!editToggle ? "Edit" : "Cancel"}{" "}
+      </button>
+      <div className="profile-container">
+        <div className="biography">
+          <p>Bio:</p>
+        </div>
+        <div className="interests">
+          <p>Interests:</p>
+        </div>
+      </div>
+      </div>
     </div>
   )
 }
