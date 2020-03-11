@@ -42,7 +42,7 @@ const MyFavorites = ({user, history}) => {
           {movies.map(movie => (
             <div>
               <h2>{movie.name}</h2>
-              <div>{movie.enre}</div>
+              <div>{movie.genre}</div>
               <div>{movie.description}</div>
               <div>{movie.image}</div>
             </div>
@@ -55,7 +55,7 @@ const MyFavorites = ({user, history}) => {
           {games.map(game => (
             <div>
               <h2>{game.name}</h2>
-              <div>{game.enre}</div>
+              <div>{game.genre}</div>
               <div>{game.description}</div>
               <div>{game.image}</div>
             </div>
@@ -68,7 +68,7 @@ const MyFavorites = ({user, history}) => {
           {music.map(music => (
             <div>
               <h2>{music.name}</h2>
-              <div>{music.enre}</div>
+              <div>{music.genre}</div>
               <div>{music.description}</div>
               <div>{music.image}</div>
             </div>
@@ -81,7 +81,7 @@ const MyFavorites = ({user, history}) => {
           {shows.map(game => (
             <div>
               <h2>{shows.name}</h2>
-              <div>{shows.enre}</div>
+              <div>{shows.genre}</div>
               <div>{shows.description}</div>
               <div>{shows.image}</div>
             </div>
