@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar"
 import Movie from "../Movie"
 import { REACT_APP_MOVIE } from "../../.config.js"
 import axios from "axios"
-import "../../Style/categories.css"
+import "../../Style/movies.css"
 require("dotenv").config()
 
 const Movies = props => {
@@ -34,35 +34,33 @@ const Movies = props => {
       })
   }
   return (
-    <div>
+    <div className="list-container">
       <SearchBar
         handleSubmit={submitMovie}
         handleChange={setValues}
         value={searchMovies}
         name="searchMovies"
       />
-      <div className="list-container">
-        <div className="movielist-container">
-          {movies.map((movie, i) => {
-            // console.log(movie)
-            const { poster_path, original_title, vote_average, id } = movie
-            return (
-              <Movie
-                key={id}
-                image={poster_path}
-                url={'/api/movies'}
-                msg={'Added movie to Favorites'}
-                body={{
-                  external_id: id,
-                  image: poster_path,
-                  name: original_title,
-                  rating: vote_average,
-                  category_id: 1
-                }}
-              />
-            )
-          })}
-        </div>
+      <div className="movielist-container">
+        {movies.map((movie, i) => {
+          // console.log(movie)
+          const { poster_path, original_title, vote_average, id } = movie
+          return (
+            <Movie
+              key={i}
+              image={poster_path}
+              url={'/api/movies'}
+              msg={'Added movie to Favorites'}
+              body={{
+                external_id: id,
+                image: poster_path,
+                name: original_title,
+                rating: vote_average,
+                category_id: 1
+              }}
+            />
+          )
+        })}
       </div>
     </div>
   )
