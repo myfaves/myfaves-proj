@@ -10,9 +10,12 @@ const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 const authCtrl = require("./controllers/authController")
 const userCtrl = require("./controllers/userController")
 const categoryCtrl = require("./controllers/categoryController")
-const movieCtrl = require("./controllers/movieController")
-const gameCtrl = require('./controllers/gameController')
-const songCtrl = require('./controllers/songController')
+const faveCtrl = require('./controllers/favoriteController')
+
+// const movieCtrl = require("./controllers/movieController")
+// const gameCtrl = require('./controllers/gameController')
+// const songCtrl = require('./controllers/songController')
+// const showCtrl = require('./controllers/showController')
 
 //MIDDLEWARE
 app.use(express.json())
@@ -50,22 +53,31 @@ app.get("/auth/user", authCtrl.getUser)
 app.put("/api/user", userCtrl.editUser)
 
 //FAVES ENDPOINTS
+app.get('/api/favorites/:category_id', faveCtrl.getFavoritesByCategory)
+app.get("/api/favorites", faveCtrl.getFavorites)
+app.post("/api/favorites", faveCtrl.addFavorite)
+app.delete("/api/favorites/:favorite_id", faveCtrl.deleteFavorite)
 
 //USER CATEGORY ENDPOINTS
 app.get("/api/categories", categoryCtrl.getCategories)
 app.post("/api/categories/:category_id", categoryCtrl.addCategory)
 
-//MOVIE FAVES ENDPOINTS
-app.get("/api/movies", movieCtrl.getFavorites)
-app.post("/api/movies", movieCtrl.addFavorite)
-app.delete("/api/movies/:movie_id", movieCtrl.deleteFavorite)
+// //MOVIE FAVES ENDPOINTS
+// app.get("/api/movies", movieCtrl.getFavorites)
+// app.post("/api/movies", movieCtrl.addFavorite)
+// app.delete("/api/movies/:movie_id", movieCtrl.deleteFavorite)
 
-//GAME FAVES ENDPOINTS
-app.get("/api/games", gameCtrl.getFavorites)
-app.post("/api/games", gameCtrl.addFavorite)
-app.delete("/api/games/:game_id", gameCtrl.deleteFavorite)
+// //GAME FAVES ENDPOINTS
+// app.get("/api/games", gameCtrl.getFavorites)
+// app.post("/api/games", gameCtrl.addFavorite)
+// app.delete("/api/games/:game_id", gameCtrl.deleteFavorite)
 
-//SONG FAVES ENDPOINTS
-app.get("/api/songs", songCtrl.getFavorites)
-app.post("/api/songs", songCtrl.addFavorite)
-app.delete("/api/songs/:song_id", songCtrl.deleteFavorite)
+// //SONG FAVES ENDPOINTS
+// app.get("/api/songs", songCtrl.getFavorites)
+// app.post("/api/songs", songCtrl.addFavorite)
+// app.delete("/api/songs/:song_id", songCtrl.deleteFavorite)
+
+// //SHOW FAVES ENDPOINTS
+// app.get("/api/shows", showCtrl.getFavorites)
+// app.post("/api/shows", showCtrl.addFavorite)
+// app.delete("/api/shows/:show_id", showCtrl.deleteFavorite)
