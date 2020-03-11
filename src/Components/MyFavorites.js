@@ -44,7 +44,7 @@ const MyFavorites = ({user, history}) => {
               <h2>{movie.name}</h2>
               <div>{movie.genre}</div>
               <div>{movie.description}</div>
-              <div>{movie.image}</div>
+              <div><img src={movie.image} alt="fave-image"/></div>
             </div>
           ))}{" "}
         </div>

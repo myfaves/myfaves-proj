@@ -32,6 +32,21 @@ name VARCHAR(250),
 image VARCHAR(2500),
 rating INTEGER,
 external_id INTEGER);
+CREATE TABLE IF NOT EXISTS favorite_games
+(game_id SERIAL PRIMARY KEY);
+
+CREATE TABLE IF NOT EXISTS favorite_songs
+(song_id SERIAL PRIMARY KEY);
+
+CREATE TABLE IF NOT EXISTS favorites
+(favorite_id SERIAL PRIMARY KEY,
+category_id INTEGER REFERENCES categories(category_id),
+user_id INTEGER REFERENCES users(user_id),
+name VARCHAR(250),
+image VARCHAR(2500),
+rating INTEGER,
+external_id INTEGER);
+
 
 CREATE TABLE IF NOT EXISTS favorite_games
 (game_id SERIAL PRIMARY KEY);

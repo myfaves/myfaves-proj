@@ -12,6 +12,7 @@ const Songs = props => {
   const [{ searchSongs }, setValues] = useInput({ searchGames: "" })
   useEffect(() => {
     axios({
+<<<<<<< HEAD
       "method": "GET",
       "url": "https://deezerdevs-deezer.p.rapidapi.com/search",
       "headers": {
@@ -27,12 +28,30 @@ const Songs = props => {
         setSongs(response.data.data)
       })
       .catch((error) => {
+=======
+      "method":"GET",
+      "url":"https://deezerdevs-deezer.p.rapidapi.com/search",
+      "headers":{
+      "content-type":"application/octet-stream",
+      "x-rapidapi-host":"deezerdevs-deezer.p.rapidapi.com",
+      "x-rapidapi-key": REACT_APP_RAPID
+      },
+      "params":{
+      "q": "The"
+      }
+      })
+      .then((response)=>{
+        setSongs(response.data.data)
+      })
+      .catch((error)=>{
+>>>>>>> master
         console.log(error)
       })
   }, [])
   const submitSong = (e) => {
     e.preventDefault()
     axios({
+<<<<<<< HEAD
       "method": "GET",
       "url": "https://deezerdevs-deezer.p.rapidapi.com/search",
       "headers": {
@@ -48,18 +67,40 @@ const Songs = props => {
         setSongs(response.data.data)
       })
       .catch((error) => {
+=======
+      "method":"GET",
+      "url":"https://deezerdevs-deezer.p.rapidapi.com/search",
+      "headers":{
+      "content-type":"application/octet-stream",
+      "x-rapidapi-host":"deezerdevs-deezer.p.rapidapi.com",
+      "x-rapidapi-key": REACT_APP_RAPID
+      },"params":{
+      "q": searchSongs
+      }
+      })
+      .then((response)=>{
+        console.log(response.data.data)
+        setSongs(response.data.data)
+      })
+      .catch((error)=>{
+>>>>>>> master
         console.log(error)
       })
   }
 
   return (
+<<<<<<< HEAD
     <div className="list-container">
+=======
+    <div>
+>>>>>>> master
       <SearchBar
         handleSubmit={submitSong}
         handleChange={setValues}
         value={searchSongs}
         name="searchSongs"
       />
+<<<<<<< HEAD
       <div className="data-list-container">
         {songs.map((song, i) => {
           // console.log(song)
@@ -82,6 +123,33 @@ const Songs = props => {
             </div>
           )
         })}
+=======
+      <div className="list-container">
+        <div className="songlist-container">
+          {songs.map((song, i) => {
+            // console.log(song)
+            const { title, rank, id, album } = song
+            return (
+              <div className="game-container" key={i}>
+                <Movie
+                  key={id}
+                  image={album.cover}
+                  url={'/api/songs'}
+                  msg={'Added song to Favorites'}
+                  body={{
+                    external_id: id,
+                    image: album.cover,
+                    name: title,
+                    rating: rank,
+                    category_id: 3
+                  }}
+                />
+                <div>{song.title}</div>
+              </div>
+            )
+          })}
+        </div>
+>>>>>>> master
       </div>
     </div>
   )
