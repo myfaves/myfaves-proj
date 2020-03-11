@@ -6,41 +6,48 @@ import axios from "axios"
 import { REACT_APP_RAPID } from "../../.config.js"
 require("dotenv").config()
 
-const Games = props => {
-  const [games, setGames] = useState([])
-  const [{ searchGames }, setValues] = useInput({ searchGames: "" })
-
+const Shows = props => {
+  const [shows, setShows] = useState([])
+  const [{ searchShows }, setValues] = useInput({ searchShows: "" })
   useEffect(() => {
     axios({
       method: "GET",
-      url: "https://rawg-video-games-database.p.rapidapi.com/games",
+      url: "https://tvjan-tvmaze-v1.p.rapidapi.com/search/shows",
       headers: {
         "content-type": "application/octet-stream",
-        "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
+        "x-rapidapi-host": "tvjan-tvmaze-v1.p.rapidapi.com",
         "x-rapidapi-key": REACT_APP_RAPID
+      },
+      params: {
+        q: "Survivor"
       }
     })
       .then(response => {
-        setGames(response.data.results)
+        // console.log(response.data)
+        setShows(response.data )
       })
       .catch(error => {
         console.log(error)
       })
   }, [])
 
-  const submitGame = e => {
+  const handleSubmit = e => {
     e.preventDefault()
     axios({
       method: "GET",
-      url: `https://rawg-video-games-database.p.rapidapi.com/games?search=${searchGames}`,
+      url: "https://tvjan-tvmaze-v1.p.rapidapi.com/search/shows",
       headers: {
         "content-type": "application/octet-stream",
-        "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
+        "x-rapidapi-host": "tvjan-tvmaze-v1.p.rapidapi.com",
         "x-rapidapi-key": REACT_APP_RAPID
+      },
+      params: {
+        q: searchShows
       }
     })
       .then(response => {
-        setGames(response.data.results)
+        console.log(response.data[0])
+        setShows(response.data )
       })
       .catch(error => {
         console.log(error)
@@ -50,32 +57,32 @@ const Games = props => {
   return (
     <div>
       <SearchBar
-        handleSubmit={submitGame}
+        handleSubmit={handleSubmit}
         handleChange={setValues}
-        value={searchGames}
-        name="searchGames"
+        value={searchShows}
+        name="searchShows"
       />
       <div className="list-container">
         <div className="gamelist-container">
-          {games.map((game, i) => {
-            // console.log(game)
-            const { background_image, name, metacritic, id } = game
+          {shows.map((show, i) => {
+            // console.log(show.show)
+            const { image, name, rating, id } = show.show
             return (
               <div className="game-container" key={i}>
                 <Movie
                   key={id}
-                  image={background_image}
-                  url={'/api/games'}
-                  msg={'Added game to Favorites'}
+                  image={image && image.original}
+                  url={'/api/shows'}
+                  msg={'Added show to Favorites'}
                   body={{
                     external_id: id,
-                    image: background_image,
+                    image: image && image.original,
                     name,
-                    rating: metacritic,
-                    category_id: 2
+                    rating: rating.average || 0,
+                    category_id: 4
                   }}
                 />
-                <div>{game.name}</div>
+                <div>{show.name}</div>
               </div>
             )
           })}
@@ -85,4 +92,4 @@ const Games = props => {
   )
 }
 
-export default Games
+export default Shows
