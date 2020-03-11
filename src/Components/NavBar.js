@@ -6,7 +6,7 @@ import axios from 'axios'
 const NavBar = (props) => {
 
   const openNav = () => {
-    document.getElementById("sideNav").style.width = "250px";
+    document.getElementById("sideNav").style.width = "220px";
   }
   
   const closeNav = () => {
@@ -17,7 +17,7 @@ const NavBar = (props) => {
     axios.post('/auth/logout')
       .then(res => {
         props.setUser(res.data)
-        props.history.push('/logout')
+        props.history.push('/login')
       }).catch(err => console.log(err))
   }
 
@@ -32,8 +32,10 @@ const NavBar = (props) => {
         <div className="menu-content" onClick={logout}>Logout</div>
       </nav>
       <nav id="sideNav">
-        <div className="menu-close" onClick={closeNav}>X</div>
-        <div className="menu-content-side" onClick={() => props.history.push('/userprofile')}>Account</div>
+        <div className="menu-close" onClick={() => closeNav()}>X</div>
+        <div className="menu-content-side" onClick={() => {
+          closeNav()
+          props.history.push('/userprofile')}}>Account</div>
         <div className="menu-content-side">Favorites</div>
         <div className="menu-content-side">Friends</div>
         <div className="menu-content-side" onClick={logout}>Logout</div>

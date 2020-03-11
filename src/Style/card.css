@@ -1,5 +1,5 @@
 .card-container {
-    margin: 30px 7px 0px 7px;
+    margin: 0px 6px 0px 6px;
     padding: 0px;
 }
 
@@ -8,8 +8,10 @@
 } */
 
 .card-image img{
-    max-height: 200px;
-    max-width: 130px;
+    min-height: 155px;
+    min-width: 105px;
+    max-height: 155px;
+    max-width: 105px;
 }
 
 .card-image img:hover {

@@ -35,6 +35,7 @@ const Movies = props => {
   }
   return (
     <div className="list-container">
+      <h1>Movies</h1>
         <SearchBar
           handleSubmit={submitMovie}
           handleChange={setValues}

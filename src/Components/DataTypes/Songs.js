@@ -54,6 +54,7 @@ const Songs = props => {
 
   return (
     <div className="list-container">
+      <h1>Music</h1>
       <SearchBar
         handleSubmit={submitSong}
         handleChange={setValues}
@@ -78,7 +79,6 @@ const Songs = props => {
                   category_id: 3
                 }}
               />
-              <div>{song.title}</div>
             </div>
           )
         })}
