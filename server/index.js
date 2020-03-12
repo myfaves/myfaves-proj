@@ -54,8 +54,8 @@ app.put("/api/user", userCtrl.editUser)
 
 //FAVES ENDPOINTS
 app.get('/api/favorites/:category_id', faveCtrl.getFavoritesByCategory)
-app.get("/api/favorites", faveCtrl.getFavorites)
-app.post("/api/favorites", faveCtrl.addFavorite)
+app.get('/api/favorites', faveCtrl.getFavorites)
+app.post('/api/favorites', faveCtrl.addFavorite)
 app.delete("/api/favorites/:favorite_id", faveCtrl.deleteFavorite)
 
 //USER CATEGORY ENDPOINTS

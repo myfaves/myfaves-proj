@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from "react-redux"
+import {setUser} from '../redux/reducer'
 import { withRouter } from 'react-router-dom'
 import '../Style/navbar.css'
 import axios from 'axios'
@@ -17,6 +19,7 @@ const NavBar = (props) => {
     axios.post('/auth/logout')
       .then(res => {
         props.setUser(res.data)
+        closeNav()
         props.history.push('/login')
       }).catch(err => console.log(err))
   }
@@ -27,7 +30,7 @@ const NavBar = (props) => {
       <div className="login-logo" onClick={() => props.history.push('/')}>MYFaves</div>
       <nav id="desktop-nav">
         <div className="menu-content" onClick={() => props.history.push('/userprofile')}>Account</div>
-        <div className="menu-content">Favorites</div>
+        <div className="menu-content" onClick={() => props.history.push('/favorites')}>Favorites</div>
         <div className="menu-content">Friends</div>
         <div className="menu-content" onClick={logout}>Logout</div>
       </nav>
@@ -36,7 +39,9 @@ const NavBar = (props) => {
         <div className="menu-content-side" onClick={() => {
           closeNav()
           props.history.push('/userprofile')}}>Account</div>
-        <div className="menu-content-side">Favorites</div>
+        <div className="menu-content-side" onClick={() => {
+          closeNav()
+          props.history.push('/favorites')}}>Favorites</div>
         <div className="menu-content-side">Friends</div>
         <div className="menu-content-side" onClick={logout}>Logout</div>
       </nav>
@@ -45,4 +50,9 @@ const NavBar = (props) => {
   )
 }
 
-export default withRouter(NavBar)
+const mapStateToProps = store => {
+  const { user } = store
+  return { user }
+}
+
+export default withRouter(connect(mapStateToProps, {setUser})(NavBar))

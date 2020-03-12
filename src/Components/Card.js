@@ -25,11 +25,11 @@ const Movie = ({ image, body, msg }) => {
             />
           ) : (
               <img
-                src={
-                  body.category_id === 1
-                    ? `https://image.tmdb.org/t/p/w500${image}`
-                    : `${image}`
-                }
+                src={ image }
+                //   body.category_id === 1
+                //     ? `https://image.tmdb.org/t/p/w500${image}`
+                //     : `${image}`
+                // }
                 alt="card-two"
               />
             )}
