@@ -18,5 +18,30 @@
     transform: scale(1.1);
 }
 
+/* MODAL STYLE */
+.modal-container {
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 99;
+  }
 
+#auth-modal {
+    background-color: #FFF;
+    width: 400px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+.close-modal {
+    color: #CCC;
+    border-radius: 12px;
+
+}
+.close-modal:hover {
+  color: #000;
+}
