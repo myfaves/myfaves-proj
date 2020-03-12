@@ -7,10 +7,15 @@
     overflow-x: scroll;
 } */
 
+.list-container h1 {
+    position: absolute;
+    margin-left: 5px;
+    color: #FFF;
+}
+
 .data-list-container {
-    height: 275px;
+    height: 220px;
     display: flex;
     overflow: scroll;
-    /* justify-content: center; */
     align-items: center;
 }

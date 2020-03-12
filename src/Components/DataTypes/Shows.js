@@ -20,7 +20,7 @@ const Shows = props => {
         "x-rapidapi-key": REACT_APP_RAPID
       },
       params: {
-        q: "Survivor"
+        q: "A"
       }
     })
       .then(response => {
@@ -47,7 +47,7 @@ const Shows = props => {
       }
     })
       .then(response => {
-        console.log(response.data[0])
+        console.log(response.data)
         setShows(response.data)
       })
       .catch(error => {
@@ -57,12 +57,13 @@ const Shows = props => {
 
   return (
     <div className="list-container">
-      <SearchBar
-        handleSubmit={handleSubmit}
-        handleChange={setValues}
-        value={searchShows}
-        name="searchShows"
-      />
+        <h1>T.V. Series</h1>
+        <SearchBar
+          handleSubmit={handleSubmit}
+          handleChange={setValues}
+          value={searchShows}
+          name="searchShows"
+        />
       <div className="data-list-container">
         {shows.map((show, i) => {
           // console.log(show.show)
@@ -81,7 +82,6 @@ const Shows = props => {
                   category_id: 4
                 }}
               />
-              <div>{show.name}</div>
             </div>
           )
         })}

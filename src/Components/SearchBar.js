@@ -3,9 +3,8 @@ import "../Style/searchbar.css"
 
 const SearchBar = ({ handleSubmit, handleChange, value, name }) => {
   return (
-    <div>
+    <div className='search-container'>
       <form className="search-bar" action="" onSubmit={handleSubmit}>
-        <div>
           <input
             className="search-bar-input"
             placeholder="Search..."
@@ -14,7 +13,6 @@ const SearchBar = ({ handleSubmit, handleChange, value, name }) => {
             value={value}
             name={name}
           />
-        </div>
       </form>
     </div>
   )

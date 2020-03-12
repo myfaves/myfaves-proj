@@ -35,6 +35,7 @@ const Movies = props => {
   }
   return (
     <div className="list-container">
+      <h1>Movies</h1>
         <SearchBar
           handleSubmit={submitMovie}
           handleChange={setValues}
@@ -48,11 +49,11 @@ const Movies = props => {
           return (
             <Card
               key={i}
-              image={poster_path}
+              image={`https://image.tmdb.org/t/p/w500${poster_path}`}
               msg={'Added movie to Favorites'}
               body={{
                 external_id: id,
-                image: poster_path,
+                image: `https://image.tmdb.org/t/p/w500${poster_path}`,
                 name: original_title,
                 rating: vote_average,
                 category_id: 1

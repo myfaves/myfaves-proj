@@ -1,0 +1,36 @@
+.fav-container {
+    width: 100%;
+    background-color: #171717;
+    display: flex;
+}
+
+.fav-list-container {
+    width: 100%;
+    display: flex;
+}
+
+.data-list-container {
+    height: 220px;
+    display: flex;
+    overflow: scroll;
+    align-items: center;
+}
+
+.card-container {
+    min-height: 155px;
+    min-width: 105px;
+    max-height: 155px;
+    max-width: 105px;
+}
+
+
+.card-container img{
+    min-height: 155px;
+    min-width: 105px;
+    max-height: 155px;
+    max-width: 105px;
+}
+
+.card-container img:hover {
+    transform: scale(1.1);
+}
