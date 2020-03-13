@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "../Style/card.css";
 import axios from "axios";
 import { toast } from "react-toastify";
-import CardModal from "../Components/CardModal";
+import CardModal from "./Modals/CardModal";
+import ShowModal from "./Modals/ShowModal";
 
 const Movie = ({ image, body, msg }) => {
   const addFavorite = () => {
@@ -46,7 +47,9 @@ const Movie = ({ image, body, msg }) => {
             <React.Fragment>
               <div className="modal-container">
                 <div id="auth-modal">
-                  <CardModal body={body}/>
+                  {/* <CardModal body={body}/> */}
+                  <ShowModal body={body}/>
+                  
                 </div>
               </div>
               
