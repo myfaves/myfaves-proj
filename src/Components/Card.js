@@ -1,20 +1,22 @@
-import React, { useState } from "react";
-import "../Style/card.css";
-import axios from "axios";
-import { toast } from "react-toastify";
-import CardModal from "../Components/CardModal";
+import React, { useState, Fragment } from "react"
+import "../Style/card.css"
+import axios from "axios"
+import { toast } from "react-toastify"
+import MovieModal from "../Components/Modals/MovieModal"
+import GameModal from "../Components/Modals/GameModal"
+import SongModal from "../Components/Modals/SongModal"
+import ShowModal from "../Components/Modals/ShowModal"
 
 const Movie = ({ image, body, msg }) => {
+  const [showModal, setModal] = useState(false)
   const addFavorite = () => {
     axios
       .post("/api/favorites", body)
       .then(res => {
-        toast.success(msg);
+        toast.success(msg)
       })
-      .catch(err => console.log(err));
-    };
-    
-    const [showModal, setModal] = useState(false);
+      .catch(err => console.log(err))
+  }
 
   return (
     <div className="card-container">
@@ -22,7 +24,7 @@ const Movie = ({ image, body, msg }) => {
         <div
           className="card-image"
           onClick={() => {
-            setModal(!showModal);
+            setModal(true)
 
             // addFavorite
           }}
@@ -43,19 +45,25 @@ const Movie = ({ image, body, msg }) => {
             />
           )}
           {showModal ? (
-            <React.Fragment>
+            <Fragment>
               <div className="modal-container">
                 <div id="auth-modal">
-                  <CardModal body={body}/>
+                  {showModal && (
+                    <>
+                      {body.category_id === 1 && <MovieModal body={body} />}
+                      {body.category_id === 2 && <GameModal body={body} />}
+                      {body.category_id === 3 && <SongModal body={body} />}
+                      {body.category_id === 4 && <ShowModal body={body} />}
+                    </>
+                  )}
                 </div>
               </div>
-              
-            </React.Fragment>
+            </Fragment>
           ) : null}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Movie;
+export default Movie
