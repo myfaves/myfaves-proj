@@ -10,6 +10,7 @@ const Dashboard = props => {
   const [gameToggle, setGameToggle] = useState(true)
   const [songToggle, setSongToggle] = useState(true)
   const [showToggle, setShowToggle] = useState(true)
+  
 
   console.log(showToggle)
   return (

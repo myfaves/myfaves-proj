@@ -12,7 +12,7 @@
 .data-list-container {
     height: 220px;
     display: flex;
-    overflow: scroll;
+    overflow-x: scroll;
     align-items: center;
 }
 

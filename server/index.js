@@ -18,6 +18,7 @@ const faveCtrl = require('./controllers/favoriteController')
 // const showCtrl = require('./controllers/showController')
 
 //MIDDLEWARE
+const authMid = require("./middleware/authMiddleware")
 app.use(express.json())
 app.use(cors())
 app.use(
