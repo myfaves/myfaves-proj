@@ -18,19 +18,17 @@ const Movie = ({ image, body, msg }) => {
       .catch(err => console.log(err))
   }
 
-  const closeModal = (e) => {
+  const closeModal = e => {
     e.stopPropagation()
-    console.log('close modal')
     setModal(false)
   }
-  console.log(modal)
   return (
     <div className="card-container">
       <div className="card-container-top">
         <div
           className="card-image"
-          onClick={() => {
-            setModal(false)
+          onClick={e => {
+            closeModal(e)
             setModal(true)
 
             // addFavorite
@@ -53,20 +51,23 @@ const Movie = ({ image, body, msg }) => {
           )}
           {modal && (
             <Fragment>
-              <div className="modal-container">
+              <div
+                className="modal-container"
+                onClick={e => e.stopPropagation()}
+              >
                 <div id="auth-modal">
-                      {body.category_id === 1 && (
-                        <MovieModal closeModal={closeModal} setModal={setModal} body={body} />
-                      )}
-                      {body.category_id === 2 && (
-                        <GameModal setModal={setModal} body={body} />
-                      )}
-                      {body.category_id === 3 && (
-                        <SongModal setModal={setModal} body={body} />
-                      )}
-                      {body.category_id === 4 && (
-                        <ShowModal setModal={setModal} body={body} />
-                      )}
+                  {body.category_id === 1 && (
+                    <MovieModal closeModal={closeModal} body={body} />
+                  )}
+                  {body.category_id === 2 && (
+                    <GameModal closeModal={closeModal} body={body} />
+                  )}
+                  {body.category_id === 3 && (
+                    <SongModal closeModal={closeModal} body={body} />
+                  )}
+                  {body.category_id === 4 && (
+                    <ShowModal closeModal={closeModal} body={body} />
+                  )}
                 </div>
               </div>
             </Fragment>
