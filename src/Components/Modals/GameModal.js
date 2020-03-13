@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GameModal = ({setModal, body}) =>{
+const GameModal = ({closeModal, body}) =>{
   return (
     <div>GameModal</div>
   )
