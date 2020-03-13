@@ -8,7 +8,7 @@ import SongModal from "../Components/Modals/SongModal"
 import ShowModal from "../Components/Modals/ShowModal"
 
 const Movie = ({ image, body, msg }) => {
-  const [showModal, setModal] = useState(false)
+  const [modal, setModal] = useState(false)
   const addFavorite = () => {
     axios
       .post("/api/favorites", body)
@@ -18,12 +18,19 @@ const Movie = ({ image, body, msg }) => {
       .catch(err => console.log(err))
   }
 
+  const closeModal = (e) => {
+    e.stopPropagation()
+    console.log('close modal')
+    setModal(false)
+  }
+  console.log(modal)
   return (
     <div className="card-container">
       <div className="card-container-top">
         <div
           className="card-image"
           onClick={() => {
+            setModal(false)
             setModal(true)
 
             // addFavorite
@@ -44,14 +51,12 @@ const Movie = ({ image, body, msg }) => {
               alt="card-two"
             />
           )}
-          {showModal ? (
+          {modal && (
             <Fragment>
               <div className="modal-container">
                 <div id="auth-modal">
-                  {showModal && (
-                    <>
                       {body.category_id === 1 && (
-                        <MovieModal setModal={setModal} body={body} />
+                        <MovieModal closeModal={closeModal} setModal={setModal} body={body} />
                       )}
                       {body.category_id === 2 && (
                         <GameModal setModal={setModal} body={body} />
@@ -62,12 +67,10 @@ const Movie = ({ image, body, msg }) => {
                       {body.category_id === 4 && (
                         <ShowModal setModal={setModal} body={body} />
                       )}
-                    </>
-                  )}
                 </div>
               </div>
             </Fragment>
-          ) : null}
+          )}
         </div>
       </div>
     </div>
