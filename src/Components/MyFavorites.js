@@ -48,7 +48,7 @@ const MyFavorites = ({ user, history }) => {
             <div className="card-container">
                 {favorites.Movies.map(movie => (
                 <div key={movie.id}>
-                  <div><img src={movie.image} alt="pic" /></div>
+                  <div className="fav-image"><img src={movie.image} alt="pic" /></div>
                   {/* <h2>{movie.name}</h2> */}
                   <div>{movie.genre}</div>
                   <div>{movie.description}</div>
