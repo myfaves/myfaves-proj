@@ -4,7 +4,7 @@ import { REACT_APP_MOVIE } from "../../.config.js"
 import axios from "axios"
 import MovieVideos from "../ModalData/MovieVideos"
 
-const MovieModal = ({ body }) => {
+const MovieModal = ({ setModal, body }) => {
   const [movieVideos, setMovieVideos] = useState([])
   const [movieData, setMovieData] = useState({})
   const [currentVideo, setCurrentVideo] = useState(0)
@@ -46,7 +46,7 @@ const MovieModal = ({ body }) => {
     <div>
       <div className="modalDialog">
         <div>
-          <button className="close-modal" onClick={() => setClose(true)}>
+          <button className="close-modal" onClick={() => setModal(false)}>
             X
           </button>
           <img
