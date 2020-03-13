@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SongModal = ({body}) =>{
+const SongModal = ({setModal, body}) =>{
   return (
     <div>SongModal</div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ShowModal = ({body}) =>{
+const ShowModal = ({setModal, body}) =>{
   return (
     <div>ShowModal</div>
   )

@@ -50,10 +50,18 @@ const Movie = ({ image, body, msg }) => {
                 <div id="auth-modal">
                   {showModal && (
                     <>
-                      {body.category_id === 1 && <MovieModal body={body} />}
-                      {body.category_id === 2 && <GameModal body={body} />}
-                      {body.category_id === 3 && <SongModal body={body} />}
-                      {body.category_id === 4 && <ShowModal body={body} />}
+                      {body.category_id === 1 && (
+                        <MovieModal setModal={setModal} body={body} />
+                      )}
+                      {body.category_id === 2 && (
+                        <GameModal setModal={setModal} body={body} />
+                      )}
+                      {body.category_id === 3 && (
+                        <SongModal setModal={setModal} body={body} />
+                      )}
+                      {body.category_id === 4 && (
+                        <ShowModal setModal={setModal} body={body} />
+                      )}
                     </>
                   )}
                 </div>
