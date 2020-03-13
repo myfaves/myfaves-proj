@@ -4,7 +4,7 @@ import { REACT_APP_RAPID } from "../../.config.js";
 import axios from "axios";
 import Shows from '../DataTypes/Shows'
 
-const ShowModal = ({ body }) => {
+const ShowModal = ({setModal, body }) => {
   const [showData, setShowData] = useState({});
 
   useEffect(() => {
@@ -32,14 +32,13 @@ const ShowModal = ({ body }) => {
 
   }, [body.external_id, body.category_id]);
 
-  const [showClose, setClose] = useState(false);
   console.log(showData);
 
   return (
     <div>
       <div className="modalDialog">
         <div>
-          <button className="close-modal" onClick={() => setClose(!showClose)}>
+          <button className="close-modal" onClick={() => setModal(false)}>
             X
           </button>
           {showData.length > 0 &&
