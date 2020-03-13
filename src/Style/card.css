@@ -24,24 +24,26 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    position: fixed;
+    position: relative;
     z-index: 99;
   }
 
 #auth-modal {
+    z-index: 1;
     background-color: #FFF;
-    width: 400px;
-    height: 450px;
+    width: 420px;
+    height: 420px;
     display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
 .close-modal {
-    color: #CCC;
-    border-radius: 12px;
-
+    margin-left: 350px;
+    width: 50px;
+    background-color: transparent;
+    color: black;
 }
+
 .close-modal:hover {
   color: #000;
 }
+

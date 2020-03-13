@@ -12,11 +12,9 @@ const Movie = ({ image, body, msg }) => {
         toast.success(msg);
       })
       .catch(err => console.log(err));
-  };
-
-  const [showModal, setModal] = useState(false);
-  // onClick={()=> setModal(!showModal)}
-  console.log(showModal);
+    };
+    
+    const [showModal, setModal] = useState(false);
 
   return (
     <div className="card-container">
@@ -48,7 +46,7 @@ const Movie = ({ image, body, msg }) => {
             <React.Fragment>
               <div className="modal-container">
                 <div id="auth-modal">
-                  <CardModal/>
+                  <CardModal body={body}/>
                 </div>
               </div>
               

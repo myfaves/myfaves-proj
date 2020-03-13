@@ -1,22 +1,77 @@
-import React, {useState} from 'react'
-import '../Style/card.css'
+import React, { useState, useEffect } from "react";
+import "../Style/card.css";
+import { REACT_APP_MOVIE, REACT_APP_RAPID } from "../.config.js";
+import axios from "axios";
+import Movie from "./Card";
 
-const CardModal = () => {
+const CardModal = ({ body }) => {
+  const [movieVideos, setMovieVideos] = useState([]);
+  const [movieData, setMovieData] = useState({});
 
-    const [showClose, setClose] = useState(false);
+  useEffect(() => {
+    if (body.category_id === 1) {
+      let id = body.external_id;
+      //axios call movie
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=${REACT_APP_MOVIE}&language=en-US`
+        )
+        .then(movie => {
+          console.log(movie.data);
+          setMovieData(movie.data);
+        })
+        .then(
+          axios
+            .get(
+              `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${REACT_APP_MOVIE}&language=en-US`
+            )
+            .then(results => {
+              console.log(results.data.results);
+              setMovieVideos(results.data.results);
+            })
+        );
+    }
+    if (body.category_id === 2) {
+      let id = body.external_id;
+      //axios call games
+    }
+    if (body.category_id === 3) {
+      let id = body.external_id;
+      //axios call music
+    }
+    if (body.category_id === 4) {
+      let id = body.external_id;
+      //axios call shows
+    }
+  }, [body.external_id, body.category_id]);
 
-    return (
+  const [showClose, setClose] = useState(false);
+  console.log(movieData);
+  console.log(movieVideos);
+
+  return (
+    <div>
+      <div className="modalDialog">
         <div>
-        <div className="modalDialog">
-            <div><button className="close-modal"onClick={()=> setClose(!showClose)}>X</button>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
-            </p>
-
-            </div>
+          <button className="close-modal" onClick={() => setClose(!showClose)}>
+            X
+          </button>
+          {movieVideos.length > 0 &&
+            movieVideos.map((e, i) => (
+              <iframe
+                width="155"
+                height="110"
+                src={`https://www.youtube.com/embed/${e.key}`}
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            ))}
+          <p>{movieData.overview}</p>
         </div>
+      </div>
     </div>
-    )
-}
+  );
+};
 
-export default CardModal; 
+export default CardModal;
