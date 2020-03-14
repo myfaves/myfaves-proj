@@ -1,6 +1,6 @@
 import React from "react"
 
-const MovieVideos = ({ video }) => (
+const MovieVideos = ({ video, previous, next, videoCount }) => (
   <div>
     <iframe
       width="155"
@@ -10,6 +10,12 @@ const MovieVideos = ({ video }) => (
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen={true}
     ></iframe>
+    {videoCount > 1 && (
+      <div>
+        <button onClick={() => previous()}>Previous</button>
+        <button onClick={() => next()}>Next</button>
+      </div>
+    )}
   </div>
 )
 export default MovieVideos
