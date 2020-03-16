@@ -30,21 +30,19 @@ const UserProfile = ({ user, history, setUser }) => {
     toast.success('profile updated successfully')
   }
   return (
-    <div className="mainprof-container">
-      <div className="profile-card">
-    <p>Profile</p>
-    <div className="prof-pic">
+    <div className="profile-container">
+      <div className="profile">
+    <div className="profile-image">
+      <img src="https://i.imgur.com/pZVRyFK.png" alt="pfp"/>
     </div>
       {!editToggle ? (
-        <div className="name-container">
-          <h1>
-            Name: {first_name} {last_name}
-          </h1>
+        <div className="profile-username">
+          <h1>Name: {first_name} {last_name}</h1>
           <h1>Age: {age}</h1>
           <h1>Email: {email}</h1>
-        </div>
+          </div>
       ) : (
-        <form className="name-container" onSubmit={updateProfile}>
+        <form className="profile-username" onSubmit={updateProfile}>
           <Input
             name="first_name"
             value={first_name}
@@ -69,19 +67,16 @@ const UserProfile = ({ user, history, setUser }) => {
             placeHolder="Email"
             handleChange={setValues}
           />
-          <button className="profile-btn" type="submit">Save</button>
+          <button className="profile-edit-btn" type="submit">Save</button>
         </form>
       )}
-      <button className="profile-btn"onClick={() => setEditToggle(!editToggle)}>
-        {!editToggle ? "Edit" : "Cancel"}{" "}
+      <button className="profile-edit-btn"onClick={() => setEditToggle(!editToggle)}>
+        {!editToggle ? "Edit Profile" : "Cancel"}{" "}
       </button>
-      <div className="profile-container">
-        <div className="biography">
-          <p>Bio:</p>
-        </div>
-        <div className="interests">
-          <p>Interests:</p>
-        </div>
+      <div className="profile-bio">
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo	consequat. Rllamco laboris nisi ut aliquip ex ea commodo consequat sed do eiusmod tempor incididunt ut labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
       </div>
       </div>
     </div>
