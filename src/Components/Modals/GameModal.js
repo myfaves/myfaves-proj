@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { REACT_APP_RAPID } from "../../.config.js"
 import axios from "axios"
+import GameStores from "../ModalData/GameStores"
 
 const GameModal = ({ closeModal, body }) => {
-  const [{name, released, background_image, genres, website}, setGameData] = useState({})
+  const [
+    { name, released, background_image, genres, website, stores },
+    setGameData
+  ] = useState({})
   useEffect(() => {
     axios({
       method: "GET",
@@ -14,7 +18,7 @@ const GameModal = ({ closeModal, body }) => {
         "x-rapidapi-key": REACT_APP_RAPID
       }
     })
-      .then(({data}) => {
+      .then(({ data }) => {
         console.log(data)
         setGameData(data)
       })
@@ -29,12 +33,29 @@ const GameModal = ({ closeModal, body }) => {
           X
         </button>
         <p>{name}</p>
-          <p>{released}</p>
-        <img src={`${background_image}`} />
+        <p>{released}</p>
+        <a href={website && website} target="_blank">
+          <img src={`${background_image}`} />
+        </a>
         <ul>Genres:</ul>
         {genres &&
           genres.length > 0 &&
           genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
+        <div>Stores:</div>
+        <div style={{display: 'flex', JustifyContent: 'space-around', alignItems: 'center', width: "100%"}}>
+          {stores &&
+            stores.length > 0 &&
+            stores.map(store => (
+                <GameStores
+                  key={store.id}
+                  id={store.id}
+                  store={store.store}
+                  url={store.url}
+                  name={store.store.name}
+                />
+              )
+            )}
+        </div>
       </div>
     </div>
   )
