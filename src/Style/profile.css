@@ -26,7 +26,8 @@
 	margin-top: 10px;
 	margin-bottom: 0px;
 	font-size: 15px;
-	color: #555555;
+    color: #555555;
+    width: 500px;
 }
 
 .profile-username {

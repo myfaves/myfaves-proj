@@ -10,9 +10,9 @@ const MyFavorites = ({ user, history }) => {
   const [favorites, setFavorties] = useState([])
 
   // SAFE KEEPING
-  // const [games, setGames] = useState([])
-  // const [music, setMusic] = useState([])
-  // const [shows, setShows] = useState([])
+  const [games, setGames] = useState([])
+  const [music, setMusic] = useState([])
+  const [shows, setShows] = useState([])
 
   useEffect(() => {
     axios.get('/api/favorites').then(results => {
@@ -21,31 +21,29 @@ const MyFavorites = ({ user, history }) => {
     }).catch(err => console.log(err))
   }, [])
 
-  // useEffect(() => {
-  //   axios.get('/api/games').then(results => {
-  //     setGames(results.data)
-  //   }).catch(err => console.log(err))
-  // }, [])
+  useEffect(() => {
+    axios.get('/api/games').then(results => {
+      setGames(results.data)
+    }).catch(err => console.log(err))
+  }, [])
 
-  // useEffect(() => {
-  //   axios.get('/api/music').then(results => {
-  //     setMusic(results.data)
-  //   }).catch(err => console.log(err))
-  // }, [])
+  useEffect(() => {
+    axios.get('/api/music').then(results => {
+      setMusic(results.data)
+    }).catch(err => console.log(err))
+  }, [])
 
-  // useEffect(() => {
-  //   axios.get('/api/shows').then(results => {
-  //     setShows(results.data)
-  //   }).catch(err => console.log(err))
-  // }, [])
+  useEffect(() => {
+    axios.get('/api/shows').then(results => {
+      setShows(results.data)
+    }).catch(err => console.log(err))
+  }, [])
 
   return (
     <div className="fav-container">
-      <div className="fav-list-container">
-        <h1>Favs</h1>
         <div className="data-list-container">
           {favorites.Movies && favorites.Movies.length > 0 && (
-            <div className="card-container">
+            <div id="movies">
                 {favorites.Movies.map(movie => (
                 <div key={movie.id}>
                   <div><img src={movie.image} alt="pic" /></div>
@@ -56,13 +54,12 @@ const MyFavorites = ({ user, history }) => {
               ))}{" "}
             </div>
           )}
-        </div>
       </div>
-      {/* {games && games.length > 0 && (
-        <div>
+      {games && games.length > 0 && (
+        <div className="data-list-container">
         <h1>Games</h1>
         {games.map(game => (
-          <div>
+          <div id="games">
           <h2>{game.name}</h2>
           <div>{game.genre}</div>
           <div>{game.description}</div>
@@ -72,10 +69,10 @@ const MyFavorites = ({ user, history }) => {
           </div>
           )}
           {music && music.length > 0 && (
-            <div>
+            <div className="data-list-container">
             <h1>Music</h1>
             {music.map(music => (
-              <div>
+              <div id="music">
               <h2>{music.name}</h2>
               <div>{music.genre}</div>
               <div>{music.description}</div>
@@ -85,18 +82,24 @@ const MyFavorites = ({ user, history }) => {
               </div>
               )}
               {shows && shows.length > 0 && (
-                <div>
+                <div className="data-list-container">
                 <h1>Shows</h1>
-                {shows.map(game => (
-                  <div>
-                  <h2>{shows.name}</h2>
-                  <div>{shows.genre}</div>
-                  <div>{shows.description}</div>
-                  <div>{shows.image}</div>
+                {shows.map(show => (
+                  <div id="shows">
+                  <h2>{show.name}</h2>
+                  <div>{show.genre}</div>
+                  <div>{show.description}</div>
+                  <div>{show.image}</div>
                   </div>
                   ))}
                   </div>
-                )} */}
+                )}
+                <ul id="list-categories">
+                  <li id="movies"><a href="#movies">Movies</a></li>
+                  <li id="games"><a href="#games">Games</a></li>
+                  <li id="music"><a href="#music">Music</a></li>
+                  <li id="shows"><a href="#shows">Shows</a></li>
+                </ul>
     </div>
   )
 }
