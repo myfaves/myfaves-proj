@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../../Style/card.css";
 import { REACT_APP_RAPID } from "../../.config.js";
 import axios from "axios";
-import Songs from "../DataTypes/Songs";
 
 const SongModal = ({ closeModal, body }) => {
   const [songData, setSongData] = useState({});
@@ -21,15 +20,14 @@ const SongModal = ({ closeModal, body }) => {
       }
     })
       .then(song => {
-        console.log(song.data)
         setSongData(song.data);
-        setSongPreview(song.data.tracks.data)
+        setSongPreview(song.data.preview)
       })
       .catch(error => {
         console.log(error);
       });
   }, [body.external_id]);
-
+  console.log(songData)
   return(
     <div>
     <div className="modalDialog">
@@ -38,12 +36,13 @@ const SongModal = ({ closeModal, body }) => {
           X
         </button>
         <div>
+          <p>{songData.title}</p>
         <img
-          src={songData.cover}
+          src={songData.album && songData.album.cover}
           />
           <audio
           controls
-          src={songPreview.length > 0 && songPreview[0].preview}>
+          src={songPreview}>
             Your browser does not support the <code>audio</code> element.
           </audio>
         </div>
