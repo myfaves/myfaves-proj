@@ -66,7 +66,7 @@ const Games = props => {
               <Card
                 key={i}
                 image={background_image}
-                msg={'Added game to Favorites'}
+                msg={"Added game to Favorites"}
                 body={{
                   external_id: id,
                   image: background_image,

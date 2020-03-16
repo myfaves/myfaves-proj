@@ -4,28 +4,26 @@ import { REACT_APP_MOVIE } from "../../.config.js"
 import axios from "axios"
 import MovieVideos from "../ModalData/MovieVideos"
 
-const MovieModal = ({ body }) => {
+const MovieModal = ({ closeModal, body }) => {
+  const [{name, release_date, genres, overview, poster_path}, setMovieData] = useState({})
   const [movieVideos, setMovieVideos] = useState([])
-  const [movieData, setMovieData] = useState({})
   const [currentVideo, setCurrentVideo] = useState(0)
-  const [showClose, setClose] = useState(false)
-  useEffect(() => {}, [])
   useEffect(() => {
     const id = body.external_id
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${id}?api_key=${REACT_APP_MOVIE}&language=en-US`
       )
-      .then(movie => {
-        setMovieData(movie.data)
+      .then(({data}) => {
+        setMovieData(data)
       })
       .then(
         axios
           .get(
             `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${REACT_APP_MOVIE}&language=en-US`
           )
-          .then(results => {
-            setMovieVideos(results.data.results)
+          .then(({data}) => {
+            setMovieVideos(data.results)
           })
       )
   }, [body.external_id])
@@ -41,38 +39,34 @@ const MovieModal = ({ body }) => {
       ? setCurrentVideo(0)
       : setCurrentVideo(currentVideo + 1)
   }
-  console.log(movieData)
   return (
-    <div>
       <div className="modalDialog">
         <div>
-          <button className="close-modal" onClick={() => setClose(true)}>
+          <button className="close-modal" onClick={closeModal}>
             X
           </button>
           <img
-            src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
           />
-          <p>{movieData.title}</p>
-          <p>{movieData.release_date}</p>
+          <p>{name}</p>
+          <p>{release_date}</p>
           <ul>Genres:</ul>
-          {movieData.genres &&
-            movieData.genres.length > 0 &&
-            movieData.genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
+          {genres &&
+            genres.length > 0 &&
+            genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
           {movieVideos.length > 0 && (
             <div>
               <MovieVideos
-                currentVideo={currentVideo}
                 video={movieVideos[currentVideo]}
               />
               <button onClick={() => previous()}>Previous</button>
               <button onClick={() => next()}>Next</button>
             </div>
           )}
-          <p>{movieData.overview}</p>
+          <p>{overview}</p>
           <p></p>
         </div>
       </div>
-    </div>
   )
 }
 

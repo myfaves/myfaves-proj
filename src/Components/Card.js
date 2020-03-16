@@ -8,7 +8,7 @@ import SongModal from "../Components/Modals/SongModal"
 import ShowModal from "../Components/Modals/ShowModal"
 
 const Movie = ({ image, body, msg }) => {
-  const [showModal, setModal] = useState(false)
+  const [modal, setModal] = useState(false)
   const addFavorite = () => {
     axios
       .post("/api/favorites", body)
@@ -18,12 +18,17 @@ const Movie = ({ image, body, msg }) => {
       .catch(err => console.log(err))
   }
 
+  const closeModal = e => {
+    e.stopPropagation()
+    setModal(false)
+  }
   return (
     <div className="card-container">
       <div className="card-container-top">
         <div
           className="card-image"
-          onClick={() => {
+          onClick={e => {
+            closeModal(e)
             setModal(true)
 
             // addFavorite
@@ -44,22 +49,29 @@ const Movie = ({ image, body, msg }) => {
               alt="card-two"
             />
           )}
-          {showModal ? (
+          {modal && (
             <Fragment>
-              <div className="modal-container">
+              <div
+                className="modal-container"
+                onClick={e => e.stopPropagation()}
+              >
                 <div id="auth-modal">
-                  {showModal && (
-                    <>
-                      {body.category_id === 1 && <MovieModal body={body} />}
-                      {body.category_id === 2 && <GameModal body={body} />}
-                      {body.category_id === 3 && <SongModal body={body} />}
-                      {body.category_id === 4 && <ShowModal body={body} />}
-                    </>
+                  {body.category_id === 1 && (
+                    <MovieModal closeModal={closeModal} body={body} />
+                  )}
+                  {body.category_id === 2 && (
+                    <GameModal closeModal={closeModal} body={body} />
+                  )}
+                  {body.category_id === 3 && (
+                    <SongModal closeModal={closeModal} body={body} />
+                  )}
+                  {body.category_id === 4 && (
+                    <ShowModal closeModal={closeModal} body={body} />
                   )}
                 </div>
               </div>
             </Fragment>
-          ) : null}
+          )}
         </div>
       </div>
     </div>
