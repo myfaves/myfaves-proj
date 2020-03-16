@@ -15,29 +15,6 @@ CREATE TABLE IF NOT EXISTS user_categories
 user_id INTEGER REFERENCES users(user_id),
 category_id INTEGER REFERENCES categories(category_id));
 
--- CREATE TABLE IF NOT EXISTS favorite_movies 
--- (movie_id SERIAL PRIMARY KEY,
--- category_id INTEGER REFERENCES categories(category_id),
--- user_id INTEGER REFERENCES users(user_id),
--- movie_genre VARCHAR(250),
--- movie_name VARCHAR(250),
--- description VARCHAR(250),
--- poster_path VARCHAR(250));
-
-CREATE TABLE IF NOT EXISTS favorite_movies
-(movie_id SERIAL PRIMARY KEY,
-category_id INTEGER REFERENCES categories(category_id),
-user_id INTEGER REFERENCES users(user_id),
-name VARCHAR(250),
-image VARCHAR(2500),
-rating INTEGER,
-external_id INTEGER);
-CREATE TABLE IF NOT EXISTS favorite_games
-(game_id SERIAL PRIMARY KEY);
-
-CREATE TABLE IF NOT EXISTS favorite_songs
-(song_id SERIAL PRIMARY KEY);
-
 CREATE TABLE IF NOT EXISTS favorites
 (favorite_id SERIAL PRIMARY KEY,
 category_id INTEGER REFERENCES categories(category_id),
@@ -47,12 +24,10 @@ image VARCHAR(2500),
 rating INTEGER,
 external_id INTEGER);
 
-
-CREATE TABLE IF NOT EXISTS favorite_games
-(game_id SERIAL PRIMARY KEY);
-
-CREATE TABLE IF NOT EXISTS favorite_songs
-(song_id SERIAL PRIMARY KEY);
+CREATE TABLE IF NOT EXISTS friends
+(friend_junction_id SERIAL PRIMARY KEY,
+user_id INTEGER REFERENCES users(user_id),
+friend_id INTEGER REFERENCES users(user_id));
 
 SELECT * FROM users;
 SELECT * FROM categories;
