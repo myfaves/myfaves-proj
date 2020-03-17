@@ -1,36 +1,66 @@
-.fav-container {
+ul {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+ul li {
+    list-style: none;
+}
+ul li a{
+    display: block;
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+    font-size: 25px;
+    width: 140px;
+    background: white;
+    color: black;
+    margin: 5px 0;
+    padding-left: 15px;
+}
+
+ul li a:hover{
+    background: black;
+    color: white;
+}
+
+.fave-list-container {
     width: 100%;
-    background-color: #171717;
-    display: flex;
+    height: 100vh;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
 }
 
-.fav-list-container {
+.fave-list-container div {
+    position: relative;
     width: 100%;
-    display: flex;
+    height: 100%
 }
 
-.data-list-container {
-    height: 220px;
-    display: flex;
-    overflow-x: scroll;
-    align-items: center;
+.fave-list-container div h1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-.card-container {
-    min-height: 155px;
-    min-width: 105px;
-    max-height: 155px;
-    max-width: 105px;
+.fave-list-container div#movies {
+    background: red
 }
-
-
-.card-container img{
-    min-height: 155px;
-    min-width: 105px;
-    max-height: 155px;
-    max-width: 105px;
+.fave-list-container div#games {
+    background: green
 }
-
-.card-container img:hover {
-    transform: scale(1.1);
+.fave-list-container div#music {
+    background: blue
+}
+.fave-list-container div#shows {
+    background: purple
 }

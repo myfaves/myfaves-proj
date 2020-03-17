@@ -14,12 +14,12 @@ const MyFavorites = ({ user, history }) => {
   // const [music, setMusic] = useState([])
   // const [shows, setShows] = useState([])
 
-  useEffect(() => {
-    axios.get('/api/favorites').then(results => {
-      console.log(results.data)
-      setFavorties(results.data)
-    }).catch(err => console.log(err))
-  }, [])
+  // useEffect(() => {
+  //   axios.get('/api/favorites').then(results => {
+  //     console.log(results.data)
+  //     setFavorties(results.data)
+  //   }).catch(err => console.log(err))
+  // }, [])
 
   // useEffect(() => {
   //   axios.get('/api/games').then(results => {
@@ -40,29 +40,30 @@ const MyFavorites = ({ user, history }) => {
   // }, [])
 
   return (
-    <div className="fav-container">
-      <div className="fav-list-container">
-        <h1>Favs</h1>
-        <div className="data-list-container">
-          {favorites.Movies && favorites.Movies.length > 0 && (
-            <div className="card-container">
-                {favorites.Movies.map(movie => (
-                <div key={movie.id}>
+    <div className="fave-container">
+        <div className="fave-list-container">
+          {/* {favorites.Movies && favorites.Movies.length > 0 && ( */}
+            <div id="movies">
+                  <h1>Movies</h1>
+                {/* {favorites.Movies.map(movie => (
+                  <div key={movie.id}>
+                  <h1>Movies</h1>
                   <div><img src={movie.image} alt="pic" /></div>
-                  {/* <h2>{movie.name}</h2> */}
+                  <h2>{movie.name}</h2>
                   <div>{movie.genre}</div>
                   <div>{movie.description}</div>
                 </div>
-              ))}{" "}
+              ))}{" "} */}
             </div>
-          )}
-        </div>
       </div>
-      {/* {games && games.length > 0 && (
-        <div>
-        <h1>Games</h1>
-        {games.map(game => (
-          <div>
+      {/* {games && games.length > 0 && ( */}
+        <div className="fave-list-container">
+          <div id="games">
+            <h1>Games</h1>
+          </div>
+        {/* {games.map(game => (
+          <div id="games">
+          <h1>Games</h1>
           <h2>{game.name}</h2>
           <div>{game.genre}</div>
           <div>{game.description}</div>
@@ -70,12 +71,16 @@ const MyFavorites = ({ user, history }) => {
           </div>
           ))}
           </div>
-          )}
-          {music && music.length > 0 && (
-            <div>
-            <h1>Music</h1>
-            {music.map(music => (
-              <div>
+        )} */}
+          </div>
+          {/* {music && music.length > 0 && ( */}
+            <div className="fave-list-container">
+              <div id="music">
+                <h1>Music</h1>
+              </div>
+            {/* {music.map(music => (
+              <div id="music">
+              <h1>Music</h1>
               <h2>{music.name}</h2>
               <div>{music.genre}</div>
               <div>{music.description}</div>
@@ -83,27 +88,39 @@ const MyFavorites = ({ user, history }) => {
               </div>
               ))}
               </div>
-              )}
-              {shows && shows.length > 0 && (
-                <div>
-                <h1>Shows</h1>
-                {shows.map(game => (
-                  <div>
-                  <h2>{shows.name}</h2>
-                  <div>{shows.genre}</div>
-                  <div>{shows.description}</div>
-                  <div>{shows.image}</div>
+            )} */}
+              </div>
+              {/* {shows && shows.length > 0 && ( */}
+                <div className="fave-list-container">
+                  <div id="shows">
+                    <h1>Shows</h1>
+                  </div>
+                {/* {shows.map(show => (
+                  <div id="shows">
+                  <h1>Shows</h1>
+                  <h2>{show.name}</h2>
+                  <div>{show.genre}</div>
+                  <div>{show.description}</div>
+                  <div>{show.image}</div>
                   </div>
                   ))}
                   </div>
                 )} */}
-    </div>
-  )
-}
+                </div>
+                <ul>
+                  <li ><a href="#movies">Movies</a></li>
+                  <li ><a href="#games">Games</a></li>
+                  <li ><a href="#music">Music</a></li>
+                  <li ><a href="#shows">Shows</a></li>
+                </ul>
+            </div>
+          )}
+
 
 const mapStateToProps = (state) => {
   const { user } = state
   return { user }
-}
+} 
 
 export default connect(mapStateToProps)(MyFavorites)
+
