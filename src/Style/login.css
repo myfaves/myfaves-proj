@@ -39,7 +39,7 @@
   text-decoration: underline;
   cursor: pointer;
 }
-button {
+#login-register-button {
   box-sizing: border-box;
   margin: 10px;
   width: 300px;
@@ -54,7 +54,7 @@ button {
   cursor: pointer;
   transition: 0.1s ease-in-out;
 }
-button:hover {
+#login-register-button:hover {
   color: #fff;
   background-color: #EDD897;
   transition: 0.1s ease-in-out;

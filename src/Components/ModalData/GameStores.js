@@ -16,6 +16,7 @@ const GameStores = ({ id, store, url, name }) => {
       <a
         href={url && url}
         target="_blank"
+        rel="noopener noreferrer"
         style={{
           textDecoration: "none",
           hover: { textDecoration: "none" },

@@ -7,8 +7,14 @@ import GameModal from "../Components/Modals/GameModal"
 import SongModal from "../Components/Modals/SongModal"
 import ShowModal from "../Components/Modals/ShowModal"
 
-const Movie = ({ image, body, msg }) => {
+const Movie = ({ image, body, msg, favorite_id, removeFavorite }) => {
   const [modal, setModal] = useState(false)
+
+  // const getFavorites = () => {
+  //   axios
+  //     .get('/api/favorites')
+  // }
+
   const addFavorite = () => {
     axios
       .post("/api/favorites", body)
@@ -18,20 +24,41 @@ const Movie = ({ image, body, msg }) => {
       .catch(err => console.log(err))
   }
 
+  // const removeFavorite = (favorite_id) => {
+  //   axios
+  //     .delete(`/api/favorites/${favorite_id}`)
+  //     .then(res => {
+  //       toast.success(msg)
+  //     })
+  //     .catch(err => console.log(err))
+  // }
+
   const closeModal = e => {
     e.stopPropagation()
     setModal(false)
   }
+
   return (
     <div className="card-container">
       <div className="card-container-top">
+        {favorite_id ? (
+          <button onClick={() => removeFavorite(favorite_id)}>Delete favorite</button>
+        ) : (
+          <svg
+            // addFavorite
+            onClick={addFavorite}
+            id="add-favorite"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+          </svg>
+        )}
         <div
           className="card-image"
           onClick={e => {
             closeModal(e)
             setModal(true)
-
-            // addFavorite
           }}
         >
           {!image ? (

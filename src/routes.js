@@ -6,6 +6,7 @@ import Register from './Components/Register'
 import Picker from './Components/Picker'
 import MyFavorites from './Components/MyFavorites'
 import UserProfile from './Components/UserProfile'
+import Friends from './Components/Friends'
 
 export default (
   <Switch>
@@ -15,5 +16,6 @@ export default (
     <Route exact path = '/picker' component={Picker} />
     <Route exact path = '/favorites' component={MyFavorites} />
     <Route exact path = '/userprofile' component={UserProfile} />
+    <Route exact path = '/friends' component={Friends} />
   </Switch>
 )
