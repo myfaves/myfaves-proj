@@ -1,61 +1,107 @@
-.mainprof-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.profile-card {
-    align-content: center;
-}
-
-.name-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 10px;
-    box-shadow: 0 1px 5px;
-    width: 250px;
-    border-radius: 5px;
-    margin: 63px;
-}
-
-h1 {
-    font-weight: 150;
-}
-
-.biography {
-    width: 250px;
-    height: 150px;
-    box-shadow: 0 1px 5px;
-    border-radius: 5px;
-}
-
-.profile-btn {
-    width: 100px;
-}
-
-.interests {
+.profile-image img {
+    width: 200px;
+    height: 200px;
     margin-top: 50px;
-    margin-bottom: 10px;
-    width: 250px;
-    height: 150px;
-    border-radius: 5px;
-    box-shadow: 0 1px 5px;
-}
-
-.profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.prof-pic {
-    height: 150px;
-    width: 150px;
+    margin-left: 50px;
+    cursor: pointer;
     border-radius: 50%;
-    background-color: lightgrey;
-    margin-left: 110px;
+    animation: pulse 1s infinite;
+  }
+
+.profile-image {
+    background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: top center;
+	height: 140px;
+	position: relative;
 }
 
+.profile-bio{
+	padding: 40px 15px 20px 15px;
+	box-sizing: border-box;
+	background: #fafcff;
+}
+.profile-bio p{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	font-size: 15px;
+    color: #555555;
+    width: 500px;
+}
+
+.profile-username {
+    margin-left: 300px;
+}
+
+.profile-edit-btn {
+    background-color: dimgray;
+    color: black;
+    width: 100px;
+    margin-left: 100px;
+}
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+      opacity: 1;
+    }
+    25% {
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+      opacity: 1;
+    }
+    50% {
+      box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.6);
+      opacity: 1;
+      transform: translateY(-15px);
+    }
+    75% {
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+      opacity: 1;
+    }
+    100% {
+      box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.6);
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .interest-content {
+    position: relative;
+  }
+  .interest-img img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .interest-card {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .interest-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #9bdc28;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+  }
+
+  .interest-card:hover:before {
+    clip-path: circle(150px at 80% -20%);
+  }
+
+  .interest-card:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+  }
