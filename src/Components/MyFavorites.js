@@ -3,47 +3,67 @@ import axios from "axios"
 import useCheckUser from "../hooks/useCheckUser"
 import { connect } from "react-redux"
 import "../Style/myfavorites.css"
-import List from './Reusable/List'
+import List from "./Reusable/List"
 
 const MyFavorites = ({ user, history }) => {
   useCheckUser(user, history.push)
-  const [{videogames, movies, songs, shows}, setFavorites] = useState({
+  const [{ videogames, movies, songs, shows }, setFavorites] = useState({
     videogames: [],
     movies: [],
     songs: [],
     shows: []
   })
   useEffect(() => {
+    getFavorites()
+  }, [])
+  const getFavorites = () => {
     axios
-      .get("/api/favorites")
-      .then(results => {
-        setFavorites(results.data)
+    .get("/api/favorites")
+    .then(results => {
+      setFavorites(results.data)
+    })
+    .catch(err => console.log(err))
+  }
+  const removeFavorite = favorite_id => {
+    axios
+      .delete(`/api/favorites/${favorite_id}`)
+      .then(() => {
+        getFavorites()
       })
       .catch(err => console.log(err))
-  }, [])
+  }
   return (
     <div className="fave-container">
       <div className="fave-list-container">
         <div id="movies">
           <h1>Movies</h1>
-          {movies && movies.length > 0 && <List list={movies} />}
+          {movies && movies.length > 0 && (
+            <List list={movies} removeFavorite={removeFavorite} />
+          )}
         </div>
       </div>
       <div className="fave-list-container">
         <div id="games">
           <h1>Games</h1>
-          {videogames && videogames.length > 0 && <List list={videogames} />}
+          {videogames && videogames.length > 0 && (
+            <List list={videogames} removeFavorite={removeFavorite} />
+          )}
         </div>
       </div>
       <div className="fave-list-container">
         <div id="music">
           <h1>Music</h1>
-          {songs && songs.length > 0 && <List list={songs} />}
+          {songs && songs.length > 0 && (
+            <List list={songs} removeFavorite={removeFavorite} />
+          )}
         </div>
       </div>
       <div className="fave-list-container">
         <div id="shows">
           <h1>Shows</h1>
+          {shows && shows.length > 0 && (
+            <List list={shows} removeFavorite={removeFavorite} />
+          )}
         </div>
       </div>
       <ul>

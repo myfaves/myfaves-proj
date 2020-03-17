@@ -7,7 +7,7 @@ import GameModal from "../Components/Modals/GameModal"
 import SongModal from "../Components/Modals/SongModal"
 import ShowModal from "../Components/Modals/ShowModal"
 
-const Movie = ({ image, body, msg, favorite_id }) => {
+const Movie = ({ image, body, msg, favorite_id, removeFavorite }) => {
   const [modal, setModal] = useState(false)
 
   // const getFavorites = () => {
@@ -24,14 +24,14 @@ const Movie = ({ image, body, msg, favorite_id }) => {
       .catch(err => console.log(err))
   }
 
-  const removeFavorite = () => {
-    axios
-      .delete(`/api/favorites/${favorite_id}`)
-      .then(res => {
-        toast.success(msg)
-      })
-      .catch(err => console.log(err))
-  }
+  // const removeFavorite = (favorite_id) => {
+  //   axios
+  //     .delete(`/api/favorites/${favorite_id}`)
+  //     .then(res => {
+  //       toast.success(msg)
+  //     })
+  //     .catch(err => console.log(err))
+  // }
 
   const closeModal = e => {
     e.stopPropagation()
@@ -42,7 +42,7 @@ const Movie = ({ image, body, msg, favorite_id }) => {
     <div className="card-container">
       <div className="card-container-top">
         {favorite_id ? (
-          <button onClick={removeFavorite}>Delete favorite</button>
+          <button onClick={() => removeFavorite(favorite_id)}>Delete favorite</button>
         ) : (
           <svg
             // addFavorite
