@@ -76,6 +76,7 @@ const Songs = props => {
                   image: album.cover,
                   name: title,
                   rating: rank,
+                  album_id: album.id,
                   category_id: 3
                 }}
               />
