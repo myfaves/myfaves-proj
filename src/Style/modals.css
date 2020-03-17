@@ -1,6 +1,5 @@
 #modal {
     position: absolute;
-    opacity: 5;
     height: 100vh;
     width: 100vw;
     z-index: 1;
