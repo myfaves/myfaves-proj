@@ -79,6 +79,28 @@ const UserProfile = ({ user, history, setUser }) => {
         </p>
         <button className="profile-edit-btn">Edit Bio</button>
       </div>
+      <div className="interest-container">
+        <div className="interest-card">
+          <div className="interest-img">
+            <img src="https://c7.uihere.com/files/554/532/955/barry-b-benson-vanessa-bloome-bee-internet-meme-bee-small-animals-cartoon-thumb.jpg" />
+          </div>
+          <div className="interest-content">
+            <h2>Movies</h2>
+            <div className="top-interest">
+              <h3>Top 3</h3>
+              <span>1: Star Wars</span>
+              <span>2: Avengers</span>
+              <span>3: SpiderMan</span>
+            </div>
+            <div className="watch-list">
+              <h3>Watchlist</h3>
+              <span>1: Star Wars</span>
+              <span>2: Avengers</span>
+              <span>3: SpiderMan</span>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   )
