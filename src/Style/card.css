@@ -20,7 +20,6 @@
 }
 
 #add-favorite:active {
-    transform: scale(1.2);
+    transform: scale(1.1);
     fill: #FFF;
-    transition: 0.1s ease-out;
 }
