@@ -11,6 +11,7 @@ const authCtrl = require("./controllers/authController")
 const userCtrl = require("./controllers/userController")
 const categoryCtrl = require("./controllers/categoryController")
 const faveCtrl = require('./controllers/favoriteController')
+const friendCtrl = require('./controllers/friendController')
 
 // const movieCtrl = require("./controllers/movieController")
 // const gameCtrl = require('./controllers/gameController')
@@ -52,6 +53,10 @@ app.get("/auth/user", authCtrl.getUser)
 
 //USER ENDPOINTS
 app.put("/api/user", userCtrl.editUser)
+
+//FRIEND ENDPOINTS
+app.get('/api/friends', friendCtrl.getFriends)
+app.post('/api/friends/friend_id', friendCtrl.addFriend)
 
 //FAVES ENDPOINTS
 app.get('/api/favorites/:category_id', faveCtrl.getFavoritesByCategory)
