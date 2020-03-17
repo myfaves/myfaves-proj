@@ -6,7 +6,8 @@ module.exports = {
     .get_favorites(user_id)
     .then(results => {
       const modifiedResults = results.reduce((acc, e) => {
-        acc[e.category_name] ? acc[e.category_name].push(e) : acc[e.category_name] = [e]
+        const category_name = e.category_name.toLowerCase().split(' ').join('')
+        acc[category_name] ? acc[category_name].push(e) : acc[category_name] = [e]
         return acc
       }, {})
       res.status(200).send(modifiedResults)
