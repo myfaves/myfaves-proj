@@ -89,7 +89,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #9bdc28;
+    background: #DEB841;
     clip-path: circle(150px at 80% 20%);
     transition: 0.5s ease-in-out;
   }
@@ -99,9 +99,92 @@
   }
 
   .interest-card:after {
-    content: '';
+    content: 'Movies';
     position: absolute;
     top: 0;
     left: 0;
-    
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,255,0.04)
+  }
+
+  .interest-img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s;
+  }
+
+  .interest-card:hover .interest-img {
+    top: 0%;
+    transform: translateY(0%);
+  }
+  .interest-img img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    width: 270px;
+  }
+  .interest-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+  }
+  .interest-card:hover .interest-content {
+
+    height: 210px;
+  }
+  .interest-card .interest-content .top-interest,
+  .interest-card .interest-content .watch-list
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+  }
+  .interest-card .interest-content .top-interest h3,
+  .interest-card .interest-content .watch-list h3
+  {
+    color: white;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+  }
+  .interest-card .interest-content .top-interest span,
+  .interest-card .interest-content .watch-list span
+  {
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: black;
+    margin: 0 20px;
+    margin-top: 40px;
+    transition: 0.5s;
+    color: white;
+    border-radius: 4px;
+  }
+  .interest-card .interest-content .top-interest span:hover,
+  .interest-card .interest-content .watch-list span:hover
+  {
+    background: #DEB841;
+  }
+  .interest-container {
+    display: flex;
+    justify-content: space-around;
   }

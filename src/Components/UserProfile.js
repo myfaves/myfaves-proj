@@ -7,6 +7,7 @@ import {toast} from 'react-toastify'
 import axios from 'axios'
 import {setUser} from '../redux/reducer'
 import '../Style/profile.css'
+import movielogo from '../images/movielogo.png'
 
 const UserProfile = ({ user, history, setUser }) => {
   useCheckUser(user, history.push)
@@ -82,21 +83,77 @@ const UserProfile = ({ user, history, setUser }) => {
       <div className="interest-container">
         <div className="interest-card">
           <div className="interest-img">
-            <img src="https://c7.uihere.com/files/554/532/955/barry-b-benson-vanessa-bloome-bee-internet-meme-bee-small-animals-cartoon-thumb.jpg" />
+            <img src={movielogo} />
           </div>
           <div className="interest-content">
-            <h2>Movies</h2>
             <div className="top-interest">
               <h3>Top 3</h3>
-              <span>1: Star Wars</span>
-              <span>2: Avengers</span>
-              <span>3: SpiderMan</span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
             </div>
             <div className="watch-list">
               <h3>Watchlist</h3>
-              <span>1: Star Wars</span>
-              <span>2: Avengers</span>
-              <span>3: SpiderMan</span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+          </div>
+        </div>
+        <div className="interest-card">
+          <div className="interest-img">
+            <img src={movielogo} />
+          </div>
+          <div className="interest-content">
+            <div className="top-interest">
+              <h3>Top 3</h3>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+            <div className="watch-list">
+              <h3>Watchlist</h3>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+          </div>
+        </div>
+        <div className="interest-card">
+          <div className="interest-img">
+            <img src={movielogo} />
+          </div>
+          <div className="interest-content">
+            <div className="top-interest">
+              <h3>Top 3</h3>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+            <div className="watch-list">
+              <h3>Watchlist</h3>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+          </div>
+        </div>
+        <div className="interest-card">
+          <div className="interest-img">
+            <img src={movielogo} />
+          </div>
+          <div className="interest-content">
+            <div className="top-interest">
+              <h3>Top 3</h3>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+            <div className="watch-list">
+              <h3>Watchlist</h3>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
             </div>
           </div>
         </div>

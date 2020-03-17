@@ -17,13 +17,13 @@
     -o-animation: glow 800ms ease-out infinite alternate;
     -ms-animation: glow 800ms ease-out infinite alternate;
     animation: glow 800ms ease-out infinite alternate;        
-    color: #efe;
+    color: black;
     outline: none;
   }
 
   input:focus::-webkit-input-placeholder,
   input:focus::-moz-placeholder { 
-    color: #efe;
+    color: black;
   }       
 
 
