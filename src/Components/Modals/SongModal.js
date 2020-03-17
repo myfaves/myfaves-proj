@@ -3,6 +3,7 @@ import "../../Style/card.css"
 import { REACT_APP_RAPID } from "../../.config.js"
 import axios from "axios"
 import SongPreviews from "../ModalData/SongPreviews"
+import "../../Style/modals.css";
 
 const SongModal = ({ closeModal, body }) => {
   const [songData, setSongData] = useState({})
@@ -60,8 +61,8 @@ const SongModal = ({ closeModal, body }) => {
       : setCurrentTrack(currentTrack + 1)
   }
   return (
-    <div>
-      <div className="modalDialog">
+    <div id="modal">
+      <div id="modal-container">
         <div>
           <button className="close-modal" onClick={closeModal}>
             X

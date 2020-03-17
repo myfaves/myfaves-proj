@@ -3,11 +3,7 @@
     padding: 0px;
 }
 
-/* .card-container-top {
-
-} */
-
-.card-image img{
+.card-image img {
     min-height: 155px;
     min-width: 105px;
     max-height: 155px;
@@ -18,32 +14,12 @@
     transform: scale(1.1);
 }
 
-/* MODAL STYLE */
-.modal-container {
-    background-color: transparent;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    z-index: 99;
-  }
-
-#auth-modal {
-    z-index: 1;
-    background-color: #FFF;
-    width: 420px;
-    height: 420px;
-    display: flex;
-  }
-
-.close-modal {
-    margin-left: 350px;
-    width: 50px;
-    background-color: transparent;
-    color: black;
+#add-favorite {
+    height: 23px;
+    fill: #DEB841;
 }
 
-.close-modal:hover {
-  color: #000;
+#add-favorite:active {
+    transform: scale(1.1);
+    fill: #FFF;
 }
-

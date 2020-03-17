@@ -62,7 +62,7 @@ app.post('/api/friends/friend_id', friendCtrl.addFriend)
 app.get('/api/favorites/:category_id', faveCtrl.getFavoritesByCategory)
 app.get('/api/favorites', faveCtrl.getFavorites)
 app.post('/api/favorites', faveCtrl.addFavorite)
-app.delete("/api/favorites/:favorite_id", faveCtrl.deleteFavorite)
+app.delete('/api/favorites/:favorite_id', faveCtrl.deleteFavorite)
 
 //USER CATEGORY ENDPOINTS
 app.get("/api/categories", categoryCtrl.getCategories)
