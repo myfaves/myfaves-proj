@@ -4,6 +4,7 @@ import { REACT_APP_MOVIE } from "../../.config.js"
 import axios from "axios"
 import Shows from "../DataTypes/Shows"
 import MovieVideos from "../ModalData/MovieVideos"
+import "../../Style/modals.css";
 
 const ShowModal = ({ closeModal, body }) => {
   const [showVideos, setShowVideos] = useState([])
@@ -44,18 +45,15 @@ const ShowModal = ({ closeModal, body }) => {
   }
 
   return (
-    <div>
-      <div className="modalDialog">
-        <div>
-          <button className="close-modal" onClick={closeModal}>
-            X
+    <div id="modal">
+      <div id="modal-container">
+        <button className="close-modal" onClick={closeModal}>
+          X
           </button>
+        <div className="trailer-container">
           <img
             src={`https://image.tmdb.org/t/p/w500${showData.backdrop_path}`}
           />
-          {showData.genres &&
-            showData.genres.length > 0 &&
-            showData.genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
           {showVideos.length > 0 && (
             <MovieVideos
               video={showVideos[currentVideo]}
@@ -65,6 +63,9 @@ const ShowModal = ({ closeModal, body }) => {
             />
           )}
         </div>
+        {showData.genres &&
+          showData.genres.length > 0 &&
+          showData.genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
       </div>
     </div>
   )

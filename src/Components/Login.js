@@ -45,8 +45,8 @@ const Login = (props) => {
           />
           <div id="forgot">Forgot your password?</div>
           <div className="login-button-container">
-            <button type="submit" onClick={login}>Login</button>
-            <button onClick={() => props.history.push('/register')} type="submit">Register</button>
+            <button id="login-register-button" type="submit" onClick={login}>Login</button>
+            <button id="login-register-button" onClick={() => props.history.push('/register')} type="submit">Register</button>
           </div>
         </form>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import "../../Style/card.css"
+import "../../Style/modals.css";
 import { REACT_APP_MOVIE } from "../../.config.js"
 import axios from "axios"
 import MovieVideos from "../ModalData/MovieVideos"
@@ -43,28 +43,31 @@ const MovieModal = ({ closeModal, body }) => {
       : setCurrentVideo(currentVideo + 1)
   }
   return (
-    <div>
-      <div className="modalDialog">
+    <div id="modal">
+      <div id="modal-container">
         <button className="close-modal" onClick={closeModal}>
           X
         </button>
-        <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
-        <p>{name}</p>
-        <p>{release_date}</p>
-        <ul>Genres:</ul>
-        {genres &&
-          genres.length > 0 &&
-          genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
-        {movieVideos.length > 0 && (
-          <MovieVideos
-            video={movieVideos[currentVideo]}
-            previous={previous}
-            next={next}
-            videoCount={movieVideos.length}
-          />
-        )}
-        <p>{overview}</p>
-        <p></p>
+        <div className="trailer-container">
+          <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
+          {movieVideos.length > 0 && (
+            <MovieVideos
+              video={movieVideos[currentVideo]}
+              previous={previous}
+              next={next}
+              videoCount={movieVideos.length}
+            />
+          )}
+        </div>
+        <div className="information-container">
+          <p>{name}</p>
+          <p>{release_date}</p>
+          <ul>Genres:</ul>
+          {genres &&
+            genres.length > 0 &&
+            genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
+          <p>{overview}</p>
+        </div>
       </div>
     </div>
   )
