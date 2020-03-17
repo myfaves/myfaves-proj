@@ -17,14 +17,37 @@ const Movie = ({ image, body, msg }) => {
       })
       .catch(err => console.log(err))
   }
+  
+  const getFavorites = () => {
+    axios
+    .get('/api/favorites')
+  }
+
+  const removeFavorite = () => {
+    axios
+      .delete(`/api/favorites/${favorite_id}`, body)
+      .then(res => {
+        toast.success(msg)
+      })
+      .catch(err => console.log(err))
+  }
 
   const closeModal = e => {
     e.stopPropagation()
     setModal(false)
   }
+
+
+
   return (
     <div className="card-container">
       <div className="card-container-top">
+        <div class="click">
+          <span class="fa fa-star-o"></span>
+          <div class="ring"></div>
+          <div class="ring2"></div>
+          <p class="info">Added to favourites!</p>
+        </div>
         <div
           className="card-image"
           onClick={e => {
@@ -40,15 +63,15 @@ const Movie = ({ image, body, msg }) => {
               alt="card-one"
             />
           ) : (
-            <img
-              src={image}
-              //   body.category_id === 1
-              //     ? `https://image.tmdb.org/t/p/w500${image}`
-              //     : `${image}`
-              // }
-              alt="card-two"
-            />
-          )}
+              <img
+                src={image}
+                //   body.category_id === 1
+                //     ? `https://image.tmdb.org/t/p/w500${image}`
+                //     : `${image}`
+                // }
+                alt="card-two"
+              />
+            )}
           {modal && (
             <Fragment>
               <div

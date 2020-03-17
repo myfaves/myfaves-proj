@@ -1,0 +1,30 @@
+#modal {
+    position: absolute;
+    opacity: 5;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+#modal-container {
+    background-color: #FFF;
+    width: 400px;
+    height: 400px;
+}
+
+.trailer-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.close-modal {
+    margin: 5px;
+    width: 50px;
+    background-color: transparent;
+    color: black;
+}
+
+.close-modal:hover {
+  color: #000;
+}

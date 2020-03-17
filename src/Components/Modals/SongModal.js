@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../Style/card.css";
 import { REACT_APP_RAPID } from "../../.config.js";
 import axios from "axios";
+import "../../Style/modals.css";
 
 const SongModal = ({ closeModal, body }) => {
   const [songData, setSongData] = useState({});
@@ -28,30 +29,27 @@ const SongModal = ({ closeModal, body }) => {
       });
   }, [body.external_id]);
   console.log(songData)
-  return(
-    <div>
-    <div className="modalDialog">
-      <div>
+  return (
+    <div id="modal">
+      <div id="modal-container">
         <button className="close-modal" onClick={closeModal}>
           X
         </button>
-        <div>
-          <p>{songData.title}</p>
-        <img
-          src={songData.album && songData.album.cover}
+        <div className="trailer-container">
+          <img
+            src={songData.album && songData.album.cover}
           />
           <audio
-          controls
-          src={songPreview}>
+            controls
+            src={songPreview}>
             Your browser does not support the <code>audio</code> element.
           </audio>
         </div>
-        <h1>{songData.title}</h1>
+        <p>{songData.title}</p>
         <h2>{songData.genres && songData.genres.data.length > 0 && songData.genres.data[0].name}</h2>
       </div>
     </div>
-  </div> 
-  ) 
+  )
 };
 
 export default SongModal;
