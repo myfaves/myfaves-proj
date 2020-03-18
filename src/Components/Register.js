@@ -76,8 +76,8 @@ const Register = props => {
             placeHolder="Confirm Password"
             handleChange={setValues}
           />
-        <div className="register-button-container">
-          <button type="submit" onClick={register}>Create Account</button>
+        <div className="login-register-container">
+          <button id="login-register-button" type="submit" onClick={register}>Create Account</button>
         </div>
         </form>
       </div>
