@@ -33,40 +33,40 @@ const MyFavorites = ({ user, history }) => {
       .catch(err => console.log(err))
   }
   return (
-    <div className="fave-container">
-      <div className="fave-list-container">
+    <div className="dash-container">
+      {/* <div className="data-list-container"> */}
         <div id="movies">
           <h1>Movies</h1>
           {movies && movies.length > 0 && (
             <List list={movies} removeFavorite={removeFavorite} />
           )}
         </div>
-      </div>
-      <div className="fave-list-container">
+      {/* </div> */}
+      {/* <div className="fave-list-container"> */}
         <div id="games">
           <h1>Games</h1>
           {videogames && videogames.length > 0 && (
             <List list={videogames} removeFavorite={removeFavorite} />
           )}
         </div>
-      </div>
-      <div className="fave-list-container">
+      {/* </div> */}
+      {/* <div className="fave-list-container"> */}
         <div id="music">
           <h1>Music</h1>
           {songs && songs.length > 0 && (
             <List list={songs} removeFavorite={removeFavorite} />
           )}
         </div>
-      </div>
-      <div className="fave-list-container">
+      {/* </div> */}
+      {/* <div className="fave-list-container"> */}
         <div id="shows">
           <h1>Shows</h1>
           {shows && shows.length > 0 && (
             <List list={shows} removeFavorite={removeFavorite} />
           )}
         </div>
-      </div>
-      <ul>
+      {/* </div> */}
+      {/* <ul>
         <li>
           <a href="#movies">Movies</a>
         </li>
@@ -79,7 +79,7 @@ const MyFavorites = ({ user, history }) => {
         <li>
           <a href="#shows">Shows</a>
         </li>
-      </ul>
+      </ul> */}
     </div>
   )
 }
