@@ -10,7 +10,7 @@
   }
 
 .profile-image {
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: top center;
 	height: 140px;
@@ -26,36 +26,42 @@
 	margin-top: 10px;
 	margin-bottom: 0px;
 	font-size: 15px;
-    color: #555555;
-    width: 500px;
+  color: #555555;
+  width: 500px;
 }
 
 .profile-username {
-    margin-left: 300px;
+  margin-left: 300px;
 }
 
 .profile-edit-btn {
-    background-color: dimgray;
-    color: black;
-    width: 100px;
-    margin-left: 100px;
+  background-color: black;
+  color: white;
+  width: 100px;
+  margin-left: 100px;
+}
+.profile-edit-btn:hover {
+  background-color: #DEB841;
+  color: black;
+  width: 100px;
+  margin-left: 100px;
 }
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 0 4px #DEB841;
       opacity: 1;
     }
     25% {
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 0 1px #DEB841;
       opacity: 1;
     }
     50% {
-      box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 0 7px #DEB841;
       opacity: 1;
       transform: translateY(-15px);
     }
     75% {
-      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 0 4px #DEB841;
       opacity: 1;
     }
     100% {
@@ -89,7 +95,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #DEB841;
+    background: rgba(0, 0, 0, .6);
     clip-path: circle(150px at 80% 20%);
     transition: 0.5s ease-in-out;
   }
@@ -152,8 +158,7 @@
     padding: 8px 20px;
     transition: 0.5s;
   }
-  .interest-card .interest-content .top-interest h3,
-  .interest-card .interest-content .watch-list h3
+  .interest-card .interest-content .top-interest h3
   {
     color: white;
     font-weight: 300;
@@ -162,8 +167,7 @@
     letter-spacing: 2px;
     margin-right: 10px;
   }
-  .interest-card .interest-content .top-interest span,
-  .interest-card .interest-content .watch-list span
+  .interest-card .interest-content .top-interest span
   {
     width: 26px;
     height: 26px;
@@ -179,8 +183,7 @@
     color: white;
     border-radius: 4px;
   }
-  .interest-card .interest-content .top-interest span:hover,
-  .interest-card .interest-content .watch-list span:hover
+  .interest-card .interest-content .top-interest span:hover
   {
     background: #DEB841;
   }

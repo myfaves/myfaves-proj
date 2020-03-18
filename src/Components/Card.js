@@ -42,7 +42,9 @@ const Movie = ({ image, body, msg, favorite_id, removeFavorite }) => {
     <div className="card-container">
       <div className="card-container-top">
         {favorite_id ? (
-          <button onClick={() => removeFavorite(favorite_id)}>Delete favorite</button>
+
+          // deleteFavorite
+          <button  id="remove-favorite" style={{cursor: "pointer"}} onClick={() => removeFavorite(favorite_id)}>Delete favorite</button>
         ) : (
           <svg
             // addFavorite

@@ -30,7 +30,7 @@ const GameModal = ({ closeModal, body }) => {
   return (
     <div id="modal">
       <div id="modal-container">
-        <button className="close-modal" onClick={closeModal}>
+        <button className="close-modal" style={{cursor: "pointer"}} onClick={closeModal}>
           X
         </button>
         <div className="trailer-container">

@@ -4,14 +4,19 @@
 }
 
 .card-image img {
-    min-height: 155px;
-    min-width: 105px;
-    max-height: 155px;
-    max-width: 105px;
+    min-height: 355px;
+    min-width: 305px;
+    max-height: 355px;
+    max-width: 305px;
 }
 
 .card-image img:hover {
     transform: scale(1.1);
+}
+
+.card-container-top {
+    margin-top: 50px;
+    margin-left: 100px;
 }
 
 #add-favorite {
@@ -22,4 +27,18 @@
 #add-favorite:active {
     transform: scale(1.1);
     fill: #FFF;
+}
+
+#remove-favorite {
+    background-color: black;
+    color: white;
+    width: 100px;
+    margin-left: 100px;
+    
+}
+#remove-favorite:hover {
+    background-color: #DEB841;
+    color: black;
+    width: 100px;
+    margin-left: 100px;
 }
