@@ -7,6 +7,10 @@ import {toast} from 'react-toastify'
 import axios from 'axios'
 import {setUser} from '../redux/reducer'
 import '../Style/profile.css'
+import movielogo from '../images/movielogo.png'
+import gameslogo from '../images/gameslogo.png'
+import musiclogo from '../images/musiclogo.png'
+import showslogo from '../images/showslogo.png'
 
 const UserProfile = ({ user, history, setUser }) => {
   useCheckUser(user, history.push)
@@ -67,36 +71,68 @@ const UserProfile = ({ user, history, setUser }) => {
             placeHolder="Email"
             handleChange={setValues}
           />
-          <button className="profile-edit-btn" type="submit">Save</button>
+          <button className="profile-edit-btn" style={{cursor: "pointer"}} type="submit">Save</button>
         </form>
       )}
-      <button className="profile-edit-btn"onClick={() => setEditToggle(!editToggle)}>
+      <button className="profile-edit-btn" style={{cursor: "pointer"}}onClick={() => setEditToggle(!editToggle)}>
         {!editToggle ? "Edit Profile" : "Cancel"}{" "}
       </button>
       <div className="profile-bio">
         <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo	consequat. Rllamco laboris nisi ut aliquip ex ea commodo consequat sed do eiusmod tempor incididunt ut labore et dolore magna aliqua laboris nisi ut aliquip ex ea commodo consequat sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <button className="profile-edit-btn">Edit Bio</button>
+        <button className="profile-edit-btn" style={{cursor: "pointer"}}>Edit Bio</button>
       </div>
       <div className="interest-container">
         <div className="interest-card">
           <div className="interest-img">
-            <img src="https://c7.uihere.com/files/554/532/955/barry-b-benson-vanessa-bloome-bee-internet-meme-bee-small-animals-cartoon-thumb.jpg" />
+            <img src={movielogo} />
           </div>
           <div className="interest-content">
-            <h2>Movies</h2>
             <div className="top-interest">
               <h3>Top 3</h3>
-              <span>1: Star Wars</span>
-              <span>2: Avengers</span>
-              <span>3: SpiderMan</span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
             </div>
-            <div className="watch-list">
-              <h3>Watchlist</h3>
-              <span>1: Star Wars</span>
-              <span>2: Avengers</span>
-              <span>3: SpiderMan</span>
+          </div>
+        </div>
+        <div className="interest-card">
+          <div className="interest-img">
+            <img src={gameslogo} />
+          </div>
+          <div className="interest-content">
+            <div className="top-interest">
+              <h3>Top 3</h3>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+          </div>
+        </div>
+        <div className="interest-card">
+          <div className="interest-img">
+            <img src={musiclogo} />
+          </div>
+          <div className="interest-content">
+            <div className="top-interest">
+              <h3>Top 3</h3>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+          </div>
+        </div>
+        <div className="interest-card">
+          <div className="interest-img">
+            <img src={showslogo} />
+          </div>
+          <div className="interest-content">
+            <div className="top-interest">
+              <h3>Top 3</h3>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
             </div>
           </div>
         </div>

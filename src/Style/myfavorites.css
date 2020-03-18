@@ -18,7 +18,7 @@ ul li a{
     line-height: 30px;
     font-size: 25px;
     width: 140px;
-    background: white;
+    background: rgba(0, 0, 0, .6);
     color: black;
     margin: 5px 0;
     padding-left: 15px;
@@ -26,7 +26,7 @@ ul li a{
 
 ul li a:hover{
     background: black;
-    color: white;
+    color: #DEB841;
 }
 
 .fave-list-container {
@@ -64,3 +64,4 @@ ul li a:hover{
 .fave-list-container div#shows {
     background: purple
 }
+
