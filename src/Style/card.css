@@ -3,23 +3,27 @@
     padding: 0px;
 }
 
+
 .card-image img {
     min-height: 155px;
     min-width: 105px;
     max-height: 155px;
     max-width: 105px;
+    cursor: pointer;
 }
 
-.card-image img:hover {
+.card-image img:active {
     transform: scale(1.1);
 }
 
 #add-favorite {
+    margin: 4px;
+    position: absolute;
     height: 23px;
-    fill: #DEB841;
+    fill: #FFF;
 }
 
 #add-favorite:active {
     transform: scale(1.1);
-    fill: #FFF;
+    fill: gold;
 }

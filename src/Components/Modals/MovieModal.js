@@ -62,7 +62,7 @@ const MovieModal = ({ closeModal, body }) => {
         <div className="information-container">
           <p>{name}</p>
           <p>{release_date}</p>
-          <ul>Genres:</ul>
+          <h4>Genres:</h4>
           {genres &&
             genres.length > 0 &&
             genres.map(genre => <li key={genre.id}>{genre.name}</li>)}

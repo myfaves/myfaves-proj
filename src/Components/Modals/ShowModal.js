@@ -63,6 +63,7 @@ const ShowModal = ({ closeModal, body }) => {
             />
           )}
         </div>
+        <h4>Genres:</h4>
         {showData.genres &&
           showData.genres.length > 0 &&
           showData.genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
