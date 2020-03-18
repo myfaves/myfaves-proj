@@ -7,13 +7,13 @@ import GameModal from "../Components/Modals/GameModal"
 import SongModal from "../Components/Modals/SongModal"
 import ShowModal from "../Components/Modals/ShowModal"
 
-const Movie = ({ image, body, msg }) => {
+const Movie = ({ image, body, msg, favorite_id, removeFavorite }) => {
   const [modal, setModal] = useState(false)
 
-  const getFavorites = () => {
-    axios
-      .get('/api/favorites')
-  }
+  // const getFavorites = () => {
+  //   axios
+  //     .get('/api/favorites')
+  // }
 
   const addFavorite = () => {
     axios
@@ -24,7 +24,7 @@ const Movie = ({ image, body, msg }) => {
       .catch(err => console.log(err))
   }
 
-  // const removeFavorite = () => {
+  // const removeFavorite = (favorite_id) => {
   //   axios
   //     .delete(`/api/favorites/${favorite_id}`)
   //     .then(res => {
@@ -41,9 +41,21 @@ const Movie = ({ image, body, msg }) => {
   return (
     <div className="card-container">
       <div className="card-container-top">
-        <svg 
-        // addFavorite 
-        id="add-favorite"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>
+        {favorite_id ? (
+
+          // deleteFavorite
+          <button  id="remove-favorite" style={{cursor: "pointer"}} onClick={() => removeFavorite(favorite_id)}>Delete favorite</button>
+        ) : (
+          <svg
+            // addFavorite
+            onClick={addFavorite}
+            id="add-favorite"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+          </svg>
+        )}
         <div
           className="card-image"
           onClick={e => {
@@ -57,15 +69,15 @@ const Movie = ({ image, body, msg }) => {
               alt="card-one"
             />
           ) : (
-              <img
-                src={image}
-                //   body.category_id === 1
-                //     ? `https://image.tmdb.org/t/p/w500${image}`
-                //     : `${image}`
-                // }
-                alt="card-two"
-              />
-            )}
+            <img
+              src={image}
+              //   body.category_id === 1
+              //     ? `https://image.tmdb.org/t/p/w500${image}`
+              //     : `${image}`
+              // }
+              alt="card-two"
+            />
+          )}
           {modal && (
             <Fragment>
               <div

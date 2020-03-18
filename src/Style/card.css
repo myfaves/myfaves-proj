@@ -16,6 +16,11 @@
     transform: scale(1.1);
 }
 
+.card-container-top {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
 #add-favorite {
     margin: 4px;
     position: absolute;
@@ -26,4 +31,18 @@
 #add-favorite:active {
     transform: scale(1.1);
     fill: gold;
+}
+
+#remove-favorite {
+    background-color: black;
+    color: white;
+    width: 100px;
+    margin-left: 100px;
+    
+}
+#remove-favorite:hover {
+    background-color: #DEB841;
+    color: black;
+    width: 100px;
+    margin-left: 100px;
 }

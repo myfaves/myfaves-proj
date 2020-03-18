@@ -14,7 +14,7 @@
 }
 
 .data-list-container {
-    height: 220px;
+    height: 420px;
     display: flex;
     overflow: scroll;
     align-items: center;

@@ -64,7 +64,7 @@ const SongModal = ({ closeModal, body }) => {
     <div id="modal">
       <div id="modal-container">
         <div>
-          <button className="close-modal" onClick={closeModal}>
+          <button className="close-modal" style={{cursor: "pointer"}}onClick={closeModal}>
             X
           </button>
           {albumTracks.length > 0 && (
