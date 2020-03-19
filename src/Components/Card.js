@@ -7,7 +7,7 @@ import GameModal from "../Components/Modals/GameModal"
 import SongModal from "../Components/Modals/SongModal"
 import ShowModal from "../Components/Modals/ShowModal"
 
-const Movie = ({ image, body, msg, favorite_id, removeFavorite }) => {
+const Card = ({ image, body, msg, favorite_id, removeFavorite, favorite }) => {
   const [modal, setModal] = useState(false)
 
   // const getFavorites = () => {
@@ -41,7 +41,7 @@ const Movie = ({ image, body, msg, favorite_id, removeFavorite }) => {
   return (
     <div className="card-container">
       <div className="card-container-top">
-        {favorite_id ? (
+        {favorite ? (
 
           // deleteFavorite
           <button  id="remove-favorite" style={{cursor: "pointer"}} onClick={() => removeFavorite(favorite_id)}>Delete favorite</button>
@@ -107,4 +107,4 @@ const Movie = ({ image, body, msg, favorite_id, removeFavorite }) => {
   )
 }
 
-export default Movie
+export default Card

@@ -3,6 +3,7 @@ import Games from "../DataTypes/Games"
 import axios from 'axios'
 import { connect } from "react-redux"
 import List from '../Reusable/List'
+import MostFavoritedGames from '../MostFavorited/MostFavoritedGames'
 import useCheckUser from "../../hooks/useCheckUser"
 
 const GamePage = ({user, history}) => {
@@ -36,6 +37,7 @@ const GamePage = ({user, history}) => {
           <List list={games} removeFavorite={removeFavorite} />
         )}
       </div>
+      <MostFavoritedGames />
     </div>
   )
 }

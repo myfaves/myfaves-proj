@@ -3,6 +3,7 @@ import Songs from "../DataTypes/Songs"
 import axios from 'axios'
 import { connect } from "react-redux"
 import List from '../Reusable/List'
+import MostFavoritedSongs from '../MostFavorited/MostFavoritedSongs'
 import useCheckUser from "../../hooks/useCheckUser"
 
 const SongPage = ({user, history}) => {
@@ -36,6 +37,7 @@ const SongPage = ({user, history}) => {
           <List list={songs} removeFavorite={removeFavorite} />
         )}
       </div>
+      <MostFavoritedSongs />
     </div>
   )
 }

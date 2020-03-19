@@ -28,6 +28,35 @@ module.exports = {
       .then(results => res.status(200).send(results))
       .catch(err => res.status(500).send(err))
   },
+  getAllFavoritesByCategory: (req, res) => {
+    const db = req.app.get("db")
+    const { category_id } = req.params
+    // console.log({category_id})
+    db.favorite
+      .get_all_favorites_by_category(category_id)
+      .then(results => {
+        const modifiedResults = results
+          .reduce((acc, e) => {
+            const external_id = e.external_id
+            let alreadyHas = false
+            for (let i = 0; i < acc.length; i++) {
+              if (acc[i].external_id === external_id) {
+                alreadyHas = true
+                acc[i].count++
+              }
+            }
+            if (!alreadyHas) {
+              e = { ...e, count: 1 }
+              acc.push(e)
+            }
+            return acc
+          }, [])
+          .sort((a, b) => b.count - a.count)
+          .filter((e, i) => i < 5)
+        res.status(200).send(modifiedResults)
+      })
+      .catch(err => res.status(500).send(err))
+  },
   addFavorite: async (req, res) => {
     const db = req.app.get("db")
     const { user_id } = req.session.user
@@ -39,7 +68,7 @@ module.exports = {
         .add_favorite({ user_id, ...req.body })
         .then(results => res.status(200).send(results))
         .catch(err => res.status(500).send(err))
-    }else{
+    } else {
       res.status(200).send(favorites)
     }
   },

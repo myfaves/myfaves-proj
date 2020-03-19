@@ -65,6 +65,7 @@ app.get(
   faveCtrl.getFavoritesByCategory
 )
 app.get("/api/favorites", authMid.usersOnly, faveCtrl.getFavorites)
+app.get('/api/favorites/all/:category_id', authMid.usersOnly, faveCtrl.getAllFavoritesByCategory)
 app.post("/api/favorites", authMid.usersOnly, faveCtrl.addFavorite)
 app.delete(
   "/api/favorites/:favorite_id",

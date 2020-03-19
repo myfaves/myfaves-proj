@@ -3,6 +3,7 @@ import Shows from "../DataTypes/Shows"
 import axios from 'axios'
 import { connect } from "react-redux"
 import List from '../Reusable/List'
+import MostFavoritedShows from '../MostFavorited/MostFavoritedShows'
 import useCheckUser from "../../hooks/useCheckUser"
 
 const ShowPage = ({user, history}) => {
@@ -36,6 +37,7 @@ const ShowPage = ({user, history}) => {
           <List list={shows} removeFavorite={removeFavorite} />
         )}
       </div>
+      <MostFavoritedShows />
     </div>
   )
 }

@@ -3,6 +3,7 @@ import Movies from "../DataTypes/Movies"
 import axios from 'axios'
 import { connect } from "react-redux"
 import List from '../Reusable/List'
+import MostFavoritedMovies from '../MostFavorited/MostFavoritedMovies'
 import useCheckUser from "../../hooks/useCheckUser"
 
 const MoviePage = ({user, history}) => {
@@ -33,9 +34,12 @@ const MoviePage = ({user, history}) => {
       <div>
         <h1>My Faves</h1>
         {movies && movies.length > 0 && (
-          <List list={movies} removeFavorite={removeFavorite} />
+          <List list={movies} 
+          favorite={true}
+          removeFavorite={removeFavorite} />
         )}
       </div>
+      <MostFavoritedMovies />
     </div>
   )
 }
