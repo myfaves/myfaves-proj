@@ -40,7 +40,7 @@ const NavBar = (props) => {
         <div className="menu-content" onClick={logout}>Logout</div>
       </nav>
       <nav id="sideNav">
-        <div className="menu-close" onClick={() => closeNav()}>X</div>
+        <div className="menu-close" onClick={() => closeNav()}>x</div>
         <div className="menu-content-side" onClick={() => {
           closeNav()
           props.history.push('/userprofile')}}>Account</div>

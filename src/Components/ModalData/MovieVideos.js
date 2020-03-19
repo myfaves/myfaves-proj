@@ -11,9 +11,10 @@ const MovieVideos = ({ video, previous, next, videoCount }) => (
       allowFullScreen={true}
     ></iframe>
     {videoCount > 1 && (
-      <div>
-        <button onClick={() => previous()}>Previous</button>
-        <button onClick={() => next()}>Next</button>
+      <div className="previous-next">
+        <svg onClick={() => previous()} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg>
+        <svg onClick={() => next()}
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
       </div>
     )}
   </div>

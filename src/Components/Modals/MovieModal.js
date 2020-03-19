@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
 import "../../Style/modals.css";
+import "../../Style/moviemodal.css";
 import { REACT_APP_MOVIE } from "../../.config.js"
 import axios from "axios"
+import { toast } from "react-toastify"
 import MovieVideos from "../ModalData/MovieVideos"
 
 const MovieModal = ({ closeModal, body }) => {
@@ -42,14 +44,40 @@ const MovieModal = ({ closeModal, body }) => {
       ? setCurrentVideo(0)
       : setCurrentVideo(currentVideo + 1)
   }
+
+
+  const addFavorite = () => {
+    axios
+      .post("/api/favorites", body)
+      .then(res => {
+        toast.success("Successfully Favorited")
+      })
+      .catch(err => console.log(err))
+  }
+
   return (
     <div id="modal">
       <div id="modal-container">
-        <button className="close-modal" style={{cursor: "pointer"}} onClick={closeModal}>
+        <button className="close-modal" onClick={closeModal}>
           X
         </button>
+        <div className="information-container">
+          <div className="modal-info-img">
+            <img id="modal-container-img" src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
+            <div className="title">
+              <h2>{body.name}</h2>
+              <p><h4>Realeased:</h4>{release_date}</p>
+              <h4>Genres: </h4>
+              {genres &&
+                genres.length > 0 &&
+                genres.map(genre => <div key={genre.id}> {genre.name}</div>)}
+            </div>
+          </div>
+          <br />
+            <p className="modal-description"><h2>About:</h2>{overview}</p>
+        </div>
+        <br/>
         <div className="trailer-container">
-          <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
           {movieVideos.length > 0 && (
             <MovieVideos
               video={movieVideos[currentVideo]}
@@ -58,15 +86,6 @@ const MovieModal = ({ closeModal, body }) => {
               videoCount={movieVideos.length}
             />
           )}
-        </div>
-        <div className="information-container">
-          <p>{name}</p>
-          <p>{release_date}</p>
-          <h4>Genres:</h4>
-          {genres &&
-            genres.length > 0 &&
-            genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
-          <p>{overview}</p>
         </div>
       </div>
     </div>
