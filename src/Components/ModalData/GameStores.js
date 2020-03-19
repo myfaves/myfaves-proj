@@ -10,7 +10,6 @@ import {
 //GoG
 
 const GameStores = ({ id, store, url, name }) => {
-  console.log(store)
   return (
     <div>
       <a
@@ -29,7 +28,7 @@ const GameStores = ({ id, store, url, name }) => {
       name === "App Store" ||
       name === "Google Play" ||
       name === "PlayStation Store" ||
-      name === "Nintendo Store" ? (
+      name === "Nintendo Store" && (
         <span>
           {name === "Steam" && <FaSteam size={25} />}
           {name === "Nintendo Store" && <FaNintendoSwitch color='red' size={25} />}
@@ -42,9 +41,11 @@ const GameStores = ({ id, store, url, name }) => {
             <FaXbox size={25} color="green" />
           )}
         </span>
-      ) : (
-        <span>{name}</span>
-      )}
+      ) 
+      // : (
+      //   <span>{name}</span>
+      // )
+      }
       </a>
     </div>
   )
