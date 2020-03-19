@@ -38,7 +38,9 @@ const MyFavorites = ({ user, history }) => {
         <div id="movies">
           <h1>Movies</h1>
           {movies && movies.length > 0 && (
-            <List list={movies} removeFavorite={removeFavorite} />
+            <List list={movies} 
+            favorite={true}
+            removeFavorite={removeFavorite} />
           )}
         </div>
       {/* </div> */}
@@ -46,7 +48,9 @@ const MyFavorites = ({ user, history }) => {
         <div id="games">
           <h1>Games</h1>
           {videogames && videogames.length > 0 && (
-            <List list={videogames} removeFavorite={removeFavorite} />
+            <List list={videogames} 
+            favorite={true}
+            removeFavorite={removeFavorite} />
           )}
         </div>
       {/* </div> */}
@@ -54,7 +58,9 @@ const MyFavorites = ({ user, history }) => {
         <div id="music">
           <h1>Music</h1>
           {songs && songs.length > 0 && (
-            <List list={songs} removeFavorite={removeFavorite} />
+            <List list={songs} 
+            favorite={true}
+            removeFavorite={removeFavorite} />
           )}
         </div>
       {/* </div> */}
@@ -62,7 +68,9 @@ const MyFavorites = ({ user, history }) => {
         <div id="shows">
           <h1>Shows</h1>
           {shows && shows.length > 0 && (
-            <List list={shows} removeFavorite={removeFavorite} />
+            <List list={shows}
+            favorite={true}
+             removeFavorite={removeFavorite} />
           )}
         </div>
       {/* </div> */}

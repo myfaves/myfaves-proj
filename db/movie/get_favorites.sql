@@ -1,1 +1,0 @@
-SELECT * FROM favorite_movies WHERE user_id = $1;
