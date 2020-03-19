@@ -10,8 +10,8 @@ const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 const authCtrl = require("./controllers/authController")
 const userCtrl = require("./controllers/userController")
 const categoryCtrl = require("./controllers/categoryController")
-const faveCtrl = require('./controllers/favoriteController')
-const friendCtrl = require('./controllers/friendController')
+const faveCtrl = require("./controllers/favoriteController")
+const friendCtrl = require("./controllers/friendController")
 
 // const movieCtrl = require("./controllers/movieController")
 // const gameCtrl = require('./controllers/gameController')
@@ -55,18 +55,30 @@ app.get("/auth/user", authCtrl.getUser)
 app.put("/api/user", userCtrl.editUser)
 
 //FRIEND ENDPOINTS
-app.get('/api/friends', friendCtrl.getFriends)
-app.post('/api/friends/friend_id', friendCtrl.addFriend)
+app.get("/api/friends", authMid.usersOnly, friendCtrl.getFriends)
+app.post("/api/friends/friend_id", authMid.usersOnly, friendCtrl.addFriend)
 
 //FAVES ENDPOINTS
-app.get('/api/favorites/:category_id', faveCtrl.getFavoritesByCategory)
-app.get('/api/favorites', faveCtrl.getFavorites)
-app.post('/api/favorites', faveCtrl.addFavorite)
-app.delete('/api/favorites/:favorite_id', faveCtrl.deleteFavorite)
+app.get(
+  "/api/favorites/:category_id",
+  authMid.usersOnly,
+  faveCtrl.getFavoritesByCategory
+)
+app.get("/api/favorites", authMid.usersOnly, faveCtrl.getFavorites)
+app.post("/api/favorites", authMid.usersOnly, faveCtrl.addFavorite)
+app.delete(
+  "/api/favorites/:favorite_id",
+  authMid.usersOnly,
+  faveCtrl.deleteFavorite
+)
 
 //USER CATEGORY ENDPOINTS
-app.get("/api/categories", categoryCtrl.getCategories)
-app.post("/api/categories/:category_id", categoryCtrl.addCategory)
+app.get("/api/categories", authMid.usersOnly, categoryCtrl.getCategories)
+app.post(
+  "/api/categories/:category_id",
+  authMid.usersOnly,
+  categoryCtrl.addCategory
+)
 
 // //MOVIE FAVES ENDPOINTS
 // app.get("/api/movies", movieCtrl.getFavorites)
