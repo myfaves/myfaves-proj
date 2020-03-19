@@ -1,26 +1,31 @@
-import React from "react"
+import React from "react";
 
-const SongPreviews = ({ title, preview, img, previous, next, songCount }) => (
-  <div className="song-contain">
-    <div className="song-container"> 
-    <div className="music-player">
-    <h2>{title}</h2>
-    <div className="cover">
-
-    <img src={img && img} />
+const SongPreviews = ({ title, preview, img, previous, next, songCount, songArtist, albumName }) => (
+  <div className="song-modal">
+    <div className="album-info">
+      <span className="album-title">{title}</span>
+      <span className="artist-name">{songArtist}</span>
+      <span className="album-name">{albumName}</span>
     </div>
-    <audio controls src={preview}>
-      Your browser does not support the <code>audio</code> element.
-    </audio>
+
+    <img id="song-modal-img" src={img && img} />
+
+    <div className="audio">
+      <audio controls src={preview}>
+        Your browser does not support the <code>audio</code> element.
+      </audio>
+    </div>
     {songCount > 1 && (
-      <div>
-        <button className="prev-btn"onClick={() => previous()}>Previous</button>
-        <button className="next-btn"onClick={() => next()}>Next</button>
+      <div className="song-btns">
+        <button id="prev" onClick={() => previous()}>
+          {"<"}
+        </button>
+        <button id="next" onClick={() => next()}>
+          {">"}
+        </button>
       </div>
     )}
-    </div>
-    </div>
   </div>
-)
+);
 
-export default SongPreviews
+export default SongPreviews;

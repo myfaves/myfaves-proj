@@ -105,7 +105,7 @@
   }
 
   .interest-card:after {
-    content: 'Movies';
+    content: 'Fav';
     position: absolute;
     top: 0;
     left: 0;

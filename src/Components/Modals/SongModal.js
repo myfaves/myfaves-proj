@@ -73,15 +73,18 @@ const SongModal = ({ closeModal, body }) => {
               preview={albumTracks[currentTrack].preview}
               previous={previous}
               next={next}
-              img={albumData.cover}
+              img={albumData.cover_big}
               songCount={albumTracks.length}
+              songArtist={albumData.artist.name}
+              albumName={songData.album.title}
             />
           )}
-          <h2 className="">
+          <h2>
             {songData.genres &&
               songData.genres.data.length > 0 &&
               songData.genres.data[0].name}
           </h2>
+  
         </div>
       </div>
     </div>
