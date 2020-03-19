@@ -7,9 +7,13 @@ const SongPreviews = ({ title, preview, img, previous, next, songCount, songArti
       <span className="artist-name">{songArtist}</span>
       <span className="album-name">{albumName}</span>
     </div>
+    <div>
 
     <img id="song-modal-img" src={img && img} />
-
+    </div>
+    <div class='wave'></div>
+    <div class='wave'></div>
+    <div class='wave'></div>
     <div className="audio">
       <audio controls src={preview}>
         Your browser does not support the <code>audio</code> element.
