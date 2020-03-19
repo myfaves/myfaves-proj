@@ -1,5 +1,6 @@
 #modal {
     position: fixed;
+    background-color: #171717;
     top: 0;
     left: 0;
     height: 100vh;
@@ -9,23 +10,20 @@
 
 #modal-container {
     margin: 0;
-    background-color: #FFF;
+    background-color: #25233a;
+    color: #FFF;
+    font-weight: 500;
+    font-size: 17px;
     height: 100%;
     width: 100%;
 }
 
-.trailer-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
 .close-modal {
-    margin: 5px;
-    width: 50px;
-    color: black;
+    cursor: pointer;
+    right: 0;
+    color: #FFF;
 }
 
-.close-modal:hover {
+.close-modal:active {
   color: #000;
 }

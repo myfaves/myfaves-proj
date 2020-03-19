@@ -49,7 +49,7 @@
   }
   
   .menu-content{
-    padding: 8px 8px 8px 32px;
+    margin: 25px;
     text-decoration: none;
     font-size: 18px;
     color: #FFF;
@@ -61,6 +61,7 @@
   
   .menu-content:hover {
     color: #DEB841;
+    border-bottom: 3px solid #DEB841;
   }
 
   .menu-content-side{
