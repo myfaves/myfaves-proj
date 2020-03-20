@@ -123,6 +123,20 @@
       font-weight: bold;
       z-index: 1000;
       font-family: 'Courier New', Courier, monospace;
+      transition: all 0.6s;
+      animation: neon 3s ease-in-out infinite alternate;
+  }
+  @keyframes neon {
+    from {
+      color: rgba(28, 137, 34, 0);
+      text-shadow: 0 0 1px #73d977, 0 0 5px #07520a, 0 0 1px #1cbb22,
+        0 0 2px #1cbb22, 0 0 3px #79d97d;
+    }
+    to {
+      color: rgba(28, 137, 34, 0);
+      text-shadow: 0 0 1.5px #73d977, 0 0 5px #07520a, 0 0 1px #1cbb22,
+        0 0 3px #1cbb22, 0 0 4px #79d97d;
+    }
   }
   .album-name {
       z-index: 1000;

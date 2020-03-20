@@ -1,4 +1,5 @@
 import React from "react"
+
 import {
   FaPlaystation,
   FaXbox,
@@ -29,7 +30,7 @@ const GameStores = ({ id, store, url, name }) => {
       name === "Google Play" ||
       name === "PlayStation Store" ||
       name === "Nintendo Store" && (
-        <span>
+        <span >
           {name === "Steam" && <FaSteam size={25} />}
           {name === "Nintendo Store" && <FaNintendoSwitch color='red' size={25} />}
           {name === "App Store" && <FaApple size={25} color="#aaa9ad" />}
