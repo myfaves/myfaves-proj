@@ -15,6 +15,7 @@
 
 .data-list-container {
     padding: 10px 10px;
+    background-color: #171717;
     display: flex;
     overflow: scroll;
 }

@@ -58,9 +58,7 @@ const MovieModal = ({ closeModal, body }) => {
   return (
     <div id="modal">
       <div id="modal-container">
-        <button className="close-modal" onClick={closeModal}>
-          X
-        </button>
+        <svg className="close-modal" onClick={closeModal} xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
         <div className="information-container">
           <div className="modal-info-img">
             <img id="modal-container-img" src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
