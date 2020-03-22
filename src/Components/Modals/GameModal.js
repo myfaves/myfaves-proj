@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { REACT_APP_RAPID } from "../../.config.js"
 import axios from "axios"
 import GameStores from "../ModalData/GameStores"
-import "../../Style/modals.css";
+import "../../Style/gamemodal.css";
 
 const GameModal = ({ closeModal, body }) => {
   const [
@@ -28,24 +28,35 @@ const GameModal = ({ closeModal, body }) => {
       })
   }, [])
   return (
-    <div id="modal">
-      <div id="modal-container">
+    <div id="gamemodal">
+      <div id="gamemodal-container">
         <button className="close-modal" style={{cursor: "pointer"}} onClick={closeModal}>
           X
         </button>
         <div className="trailer-container">
           <a href={website && website} target="_blank">
-            <img src={`${background_image}`} />
+            <div className="game-img-container">
+            <img id="game-modal-img" src={`${background_image}`} />
+            </div>
           </a>
         </div>
+        <div className="game-info">
+
+        <div id="game-title">
         <p>{name}</p>
-        <p>{released}</p>
+        </div>
+        <div id="game-date">
+        <p>Released: {released}</p>
+        </div>
+        <div id="game-genre">
         <h4>Genres:</h4>
+        </div>
+        </div>
         {genres &&
           genres.length > 0 &&
-          genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
-        <div>Stores:</div>
-        <div style={{ display: 'flex', JustifyContent: 'space-around', alignItems: 'center', width: "100%" }}>
+          genres.map(genre => <li id="game-genre"key={genre.id}>{genre.name}</li>)}
+        <div id="game-stores">Stores:</div>
+        <div id="stores" style={{ display: 'flex', JustifyContent: 'space-around', alignItems: 'center', width: "100%" }}>
           {stores &&
             stores.length > 0 &&
             stores.map(store => (

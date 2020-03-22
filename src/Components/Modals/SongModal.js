@@ -3,7 +3,7 @@ import "../../Style/card.css"
 import { REACT_APP_RAPID } from "../../.config.js"
 import axios from "axios"
 import SongPreviews from "../ModalData/SongPreviews"
-import "../../Style/modals.css";
+import "../../Style/songmodal.css"
 
 const SongModal = ({ closeModal, body }) => {
   const [songData, setSongData] = useState({})
@@ -61,8 +61,8 @@ const SongModal = ({ closeModal, body }) => {
       : setCurrentTrack(currentTrack + 1)
   }
   return (
-    <div id="modal">
-      <div id="modal-container">
+    <div id="songmodal">
+      <div id="songmodal-container">
         <div>
           <button className="close-modal" style={{cursor: "pointer"}}onClick={closeModal}>
             X
@@ -73,8 +73,10 @@ const SongModal = ({ closeModal, body }) => {
               preview={albumTracks[currentTrack].preview}
               previous={previous}
               next={next}
-              img={albumData.cover}
+              img={albumData.cover_big}
               songCount={albumTracks.length}
+              songArtist={albumData.artist.name}
+              albumName={songData.album.title}
             />
           )}
           <h2>
@@ -82,6 +84,7 @@ const SongModal = ({ closeModal, body }) => {
               songData.genres.data.length > 0 &&
               songData.genres.data[0].name}
           </h2>
+  
         </div>
       </div>
     </div>
