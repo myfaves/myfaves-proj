@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-import "../../Style/card.css"
 import { REACT_APP_MOVIE } from "../../.config.js"
 import axios from "axios"
 import Shows from "../DataTypes/Shows"
 import MovieVideos from "../ModalData/MovieVideos"
+import '../../Style/showmodal.css';
 import "../../Style/modals.css";
 
 const ShowModal = ({ closeModal, body }) => {
@@ -47,13 +47,27 @@ const ShowModal = ({ closeModal, body }) => {
   return (
     <div id="modal">
       <div id="modal-container">
-        <button className="close-modal" style={{cursor: "pointer"}} onClick={closeModal}>
-          X
-          </button>
+      <svg className="close-modal" onClick={closeModal} xmlns="http://www.w3.org/2000/svg"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
+      <div className="information-container">
+      <div className="modal-info-img">
+        <img id="modal-container-img"
+          src={`https://image.tmdb.org/t/p/w500${showData.backdrop_path}`}
+        />
+        <div className="title">
+          <h2>{showData.original_name}</h2>
+          <p><h4>First Aired:</h4>{showData.first_air_date}</p>
+          <p><h4>Seasons:</h4>{showData.number_of_seasons}</p>
+          <h4>Genres:</h4>
+          {showData.genres &&
+            showData.genres.length > 0 &&
+            showData.genres.map(genre => <div key={genre.id}>{genre.name}</div>)}
+        </div>
+        </div>
+        <br />
+        <p className="modal-description"><h2>About:</h2>{showData.overview}</p>
+        </div>
+        <br/>
         <div className="trailer-container">
-          <img
-            src={`https://image.tmdb.org/t/p/w500${showData.backdrop_path}`}
-          />
           {showVideos.length > 0 && (
             <MovieVideos
               video={showVideos[currentVideo]}
@@ -63,10 +77,6 @@ const ShowModal = ({ closeModal, body }) => {
             />
           )}
         </div>
-        <h4>Genres:</h4>
-        {showData.genres &&
-          showData.genres.length > 0 &&
-          showData.genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
       </div>
     </div>
   )
